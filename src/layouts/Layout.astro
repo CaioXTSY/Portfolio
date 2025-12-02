@@ -49,11 +49,14 @@ const { title } = Astro.props;
 	.main-content {
 		margin-left: 80px;
 		min-height: 100vh;
+		/* Compensar o header para centralização real */
+		margin-right: 80px;
 	}
 
 	@media (max-width: 768px) {
 		.main-content {
 			margin-left: 60px;
+			margin-right: 60px;
 		}
 	}
 </style>
