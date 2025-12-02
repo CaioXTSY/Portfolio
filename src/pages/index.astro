@@ -5,10 +5,8 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Caio Teixeira | Portfolio">
 	<main>
-		<!-- Background decorations -->
 		<div class="bg-grid"></div>
 		<div class="bg-decorations">
-			<!-- Corners -->
 			<div class="corner corner-tl"></div>
 			<div class="corner corner-tr"></div>
 			<div class="corner corner-bl"></div>
@@ -39,18 +37,6 @@ import Layout from '../layouts/Layout.astro';
 				<span class="role-text">FULLSTACK DEVELOPER</span>
 				<span class="role-line"></span>
 			</div>
-
-			<div class="status-row">
-				<div class="status-item">
-					<span class="status-dot available"></span>
-					<span class="status-text">AVAILABLE</span>
-				</div>
-				<span class="status-diamond"></span>
-				<div class="status-item">
-					<span class="status-dot location"></span>
-					<span class="status-text">BRAZIL</span>
-				</div>
-			</div>
 		</div>
 
 		<div class="scroll-indicator">
@@ -78,7 +64,6 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</div>
 
-		<!-- Personal Projects -->
 		<div class="projects-category">
 			<div class="category-header">
 				<span class="category-line"></span>
@@ -154,6 +139,18 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 </Layout>
 
+<script>
+	const scrollIndicator = document.querySelector('.scroll-indicator');
+	
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 100) {
+			scrollIndicator?.classList.add('hidden');
+		} else {
+			scrollIndicator?.classList.remove('hidden');
+		}
+	});
+</script>
+
 <style>
 	main {
 		width: 100%;
@@ -169,19 +166,19 @@ import Layout from '../layouts/Layout.astro';
 		scroll-snap-align: start;
 	}
 
-	/* Background Grid */
 	.bg-grid {
 		position: absolute;
 		inset: 0;
 		background-image: 
-			linear-gradient(to right, #e0e0e040 1px, transparent 1px),
-			linear-gradient(to bottom, #e0e0e040 1px, transparent 1px);
+			linear-gradient(to right, #00000008 1px, transparent 1px),
+			linear-gradient(to bottom, #00000008 1px, transparent 1px);
 		background-size: 80px 80px;
+		background-position: center center;
 		pointer-events: none;
 		z-index: 0;
 	}
 
-	/* Background Decorations */
+
 	.bg-decorations {
 		position: absolute;
 		inset: 0;
@@ -234,6 +231,35 @@ import Layout from '../layouts/Layout.astro';
 		text-align: center;
 		position: relative;
 		z-index: 1;
+		margin-left: -80px;
+	}
+
+	.info-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+		position: relative;
+		z-index: 1;
+	}
+
+	.scroll-indicator {
+		position: absolute;
+		bottom: 2rem;
+		left: calc(50% - 40px);
+		transform: translateX(-50%);
+		display: flex;
+		z-index: 10;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		opacity: 1;
+		transition: opacity 0.3s ease;
+	}
+
+	.scroll-indicator.hidden {
+		opacity: 0;
+		pointer-events: none;
 	}
 
 	.name-row {
@@ -264,15 +290,6 @@ import Layout from '../layouts/Layout.astro';
 		letter-spacing: 0.35em;
 		text-transform: uppercase;
 		margin-top: 0.5rem;
-	}
-
-	.info-section {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.5rem;
-		position: relative;
-		z-index: 1;
 	}
 
 	.decoration-line {
@@ -341,7 +358,9 @@ import Layout from '../layouts/Layout.astro';
 	.status-row {
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		gap: 2rem;
+		width: 100%;
 	}
 
 	.status-item {
@@ -386,18 +405,6 @@ import Layout from '../layouts/Layout.astro';
 		height: 6px;
 		background-color: #e6394650;
 		transform: rotate(45deg);
-	}
-
-	.scroll-indicator {
-		position: absolute;
-		bottom: 2rem;
-		left: 50%;
-		transform: translateX(-50%);
-		display: flex;
-		z-index: 1;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.5rem;
 	}
 
 	.scroll-line {
@@ -478,6 +485,7 @@ import Layout from '../layouts/Layout.astro';
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
 		scroll-snap-align: start;
 		position: relative;
 		overflow: hidden;
@@ -489,7 +497,8 @@ import Layout from '../layouts/Layout.astro';
 		background-image: 
 			linear-gradient(to right, #ffffff08 1px, transparent 1px),
 			linear-gradient(to bottom, #ffffff08 1px, transparent 1px);
-		background-size: 60px 60px;
+		background-size: 80px 80px;
+		background-position: center center;
 		pointer-events: none;
 		z-index: 0;
 	}
@@ -572,6 +581,7 @@ import Layout from '../layouts/Layout.astro';
 		align-items: center;
 		gap: 1rem;
 		margin-bottom: 4rem;
+		margin-left: -80px; 
 		position: relative;
 		z-index: 2;
 	}
@@ -602,12 +612,12 @@ import Layout from '../layouts/Layout.astro';
 		transform: rotate(45deg);
 	}
 
-	/* Projects Category */
 	.projects-category {
 		width: 100%;
-		max-width: 1200px;
+		max-width: 1000px;
 		position: relative;
 		z-index: 2;
+		margin-left: -80px; 
 	}
 
 	.category-header {
@@ -615,6 +625,7 @@ import Layout from '../layouts/Layout.astro';
 		align-items: center;
 		gap: 1rem;
 		margin-bottom: 2rem;
+		justify-content: center;
 	}
 
 	.category-line {
@@ -637,7 +648,6 @@ import Layout from '../layouts/Layout.astro';
 		gap: 2rem;
 	}
 
-	/* Project Card - Dark theme */
 	.project-card {
 		background-color: #111111;
 		border: 1px solid #222222;
