@@ -59,6 +59,21 @@ import Layout from '../layouts/Layout.astro';
 			<span class="scroll-text">SCROLL</span>
 		</div>
 	</main>
+
+	<section class="projects-section">
+		<div class="section-header">
+			<h2 class="section-title">PROJECTS</h2>
+			<div class="section-decoration">
+				<span class="section-line"></span>
+				<span class="section-diamond"></span>
+				<span class="section-line"></span>
+			</div>
+		</div>
+
+		<div class="projects-grid">
+			<!-- Projects will go here -->
+		</div>
+	</section>
 </Layout>
 
 <style>
@@ -373,6 +388,74 @@ import Layout from '../layouts/Layout.astro';
 
 		.status-text {
 			font-size: 0.75rem;
+		}
+	}
+
+	/* Projects Section */
+	.projects-section {
+		width: 100%;
+		min-height: 100vh;
+		padding: 6rem 4rem;
+		background-color: #fafafa;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.section-header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 2rem;
+		font-weight: 600;
+		color: #1a1a1a;
+		letter-spacing: 0.3em;
+	}
+
+	.section-decoration {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.section-line {
+		width: 30px;
+		height: 1px;
+		background-color: #1a1a1a;
+	}
+
+	.section-diamond {
+		width: 8px;
+		height: 8px;
+		background-color: #e63946;
+		transform: rotate(45deg);
+	}
+
+	.projects-grid {
+		width: 100%;
+		max-width: 1200px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+	}
+
+	@media (max-width: 768px) {
+		.projects-section {
+			padding: 4rem 2rem;
+		}
+
+		.section-title {
+			font-size: 1.5rem;
+			letter-spacing: 0.2em;
+		}
+
+		.projects-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>
