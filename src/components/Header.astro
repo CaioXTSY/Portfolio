@@ -1,0 +1,237 @@
+---
+// Header component
+---
+
+<header class="header">
+  <div class="logo">
+    <a href="/" class="logo-text">
+      <span>CAIO</span>
+      <span class="highlight">TEIXEIRA</span>
+    </a>
+  </div>
+  
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item active">
+        <a href="#home">
+          <span class="nav-number">01</span>
+          <span class="nav-line"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#about">
+          <span class="nav-number">02</span>
+          <span class="nav-line"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#projects">
+          <span class="nav-number">03</span>
+          <span class="nav-line"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#skills">
+          <span class="nav-number">04</span>
+          <span class="nav-line"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact">
+          <span class="nav-number">05</span>
+          <span class="nav-line"></span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="status">
+    <span class="status-dot"></span>
+    <span class="status-text">AVAILABLE</span>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    background: #fff;
+    z-index: 1000;
+    border-right: 1px solid #f0f0f0;
+  }
+
+  .logo {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  .logo-text {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .logo-text .highlight {
+    color: #000;
+    font-weight: 400;
+  }
+
+  .nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .nav-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #999;
+    transition: color 0.3s ease;
+  }
+
+  .nav-item a:hover,
+  .nav-item.active a {
+    color: #000;
+  }
+
+  .nav-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-line {
+    width: 2px;
+    height: 20px;
+    background: #e0e0e0;
+    transition: background 0.3s ease, height 0.3s ease;
+  }
+
+  .nav-item.active .nav-line {
+    background: #2563eb;
+    height: 30px;
+  }
+
+  .nav-item a:hover .nav-line {
+    background: #2563eb;
+  }
+
+  .status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .status-text {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: #22c55e;
+  }
+
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .header {
+      width: 60px;
+      padding: 1rem 0;
+    }
+
+    .logo-text {
+      font-size: 0.7rem;
+    }
+
+    .nav-list {
+      gap: 1rem;
+    }
+
+    .nav-number {
+      font-size: 0.65rem;
+    }
+
+    .nav-line {
+      height: 15px;
+    }
+
+    .nav-item.active .nav-line {
+      height: 25px;
+    }
+  }
+</style>
+
+<script>
+  // Active navigation based on scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('section[id]');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navItems.forEach((item, index) => {
+            item.classList.remove('active');
+            const link = item.querySelector('a');
+            if (link?.getAttribute('href') === `#${id}`) {
+              item.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+  });
+</script>
