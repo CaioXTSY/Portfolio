@@ -271,6 +271,126 @@ import Layout from '../layouts/Layout.astro';
 			<button class="indicator" data-index="7"></button>
 		</div>
 	</section>
+
+	<!-- Professional Projects Section - Different Design -->
+	<section class="pro-section">
+		<div class="pro-lines-bg">
+			<div class="pro-vline"></div>
+			<div class="pro-vline"></div>
+			<div class="pro-vline"></div>
+			<div class="pro-vline"></div>
+			<div class="pro-vline"></div>
+		</div>
+		<div class="pro-content">
+			<div class="pro-header">
+				<div class="pro-label">
+					<span class="pro-label-line"></span>
+					<span class="pro-label-text">EXPERIENCE</span>
+				</div>
+				<h2 class="pro-title">Professional<br/><span class="pro-title-accent">Projects</span></h2>
+				<p class="pro-subtitle">Enterprise solutions and client work</p>
+			</div>
+
+			<div class="pro-grid">
+				<article class="pro-card pro-card-featured">
+					<div class="pro-card-bg"></div>
+					<div class="pro-card-content">
+						<div class="pro-card-top">
+							<span class="pro-card-year">2024</span>
+							<span class="pro-card-type">Enterprise</span>
+						</div>
+						<h3 class="pro-card-title">Project Name</h3>
+						<p class="pro-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+						<div class="pro-card-stack">
+							<span class="pro-stack-item">React</span>
+							<span class="pro-stack-item">Node.js</span>
+							<span class="pro-stack-item">AWS</span>
+						</div>
+						<div class="pro-card-footer">
+							<span class="pro-card-role">Lead Developer</span>
+							<div class="pro-card-arrow">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M7 17L17 7M17 7H7M17 7V17"/>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="pro-card">
+					<div class="pro-card-bg"></div>
+					<div class="pro-card-content">
+						<div class="pro-card-top">
+							<span class="pro-card-year">2024</span>
+							<span class="pro-card-type">SaaS</span>
+						</div>
+						<h3 class="pro-card-title">Project Name</h3>
+						<p class="pro-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<div class="pro-card-stack">
+							<span class="pro-stack-item">Vue.js</span>
+							<span class="pro-stack-item">Python</span>
+						</div>
+						<div class="pro-card-footer">
+							<span class="pro-card-role">Fullstack Dev</span>
+							<div class="pro-card-arrow">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M7 17L17 7M17 7H7M17 7V17"/>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="pro-card">
+					<div class="pro-card-bg"></div>
+					<div class="pro-card-content">
+						<div class="pro-card-top">
+							<span class="pro-card-year">2023</span>
+							<span class="pro-card-type">Fintech</span>
+						</div>
+						<h3 class="pro-card-title">Project Name</h3>
+						<p class="pro-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<div class="pro-card-stack">
+							<span class="pro-stack-item">Next.js</span>
+							<span class="pro-stack-item">PostgreSQL</span>
+						</div>
+						<div class="pro-card-footer">
+							<span class="pro-card-role">Backend Dev</span>
+							<div class="pro-card-arrow">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M7 17L17 7M17 7H7M17 7V17"/>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</article>
+
+				<article class="pro-card">
+					<div class="pro-card-bg"></div>
+					<div class="pro-card-content">
+						<div class="pro-card-top">
+							<span class="pro-card-year">2023</span>
+							<span class="pro-card-type">E-commerce</span>
+						</div>
+						<h3 class="pro-card-title">Project Name</h3>
+						<p class="pro-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<div class="pro-card-stack">
+							<span class="pro-stack-item">Angular</span>
+							<span class="pro-stack-item">Firebase</span>
+						</div>
+						<div class="pro-card-footer">
+							<span class="pro-card-role">Frontend Dev</span>
+							<div class="pro-card-arrow">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M7 17L17 7M17 7H7M17 7V17"/>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
 </Layout>
 
 <script>
@@ -284,7 +404,6 @@ import Layout from '../layouts/Layout.astro';
 		}
 	});
 
-	// Infinite Carousel functionality
 	const track = document.querySelector('.carousel-track') as HTMLElement;
 	const cards = Array.from(document.querySelectorAll('.project-card'));
 	const prevBtn = document.querySelector('.carousel-btn.prev');
@@ -296,23 +415,19 @@ import Layout from '../layouts/Layout.astro';
 	let currentIndex = 0;
 	let isTransitioning = false;
 	
-	// Clone cards for infinite effect
 	function setupInfiniteCarousel() {
-		// Clone first few cards to the end
 		cards.forEach(card => {
 			const clone = card.cloneNode(true) as HTMLElement;
 			clone.classList.add('clone');
 			track.appendChild(clone);
 		});
 		
-		// Clone last few cards to the beginning
 		for (let i = cards.length - 1; i >= 0; i--) {
 			const clone = cards[i].cloneNode(true) as HTMLElement;
 			clone.classList.add('clone');
 			track.insertBefore(clone, track.firstChild);
 		}
 		
-		// Set initial position (offset by cloned cards)
 		currentIndex = totalCards;
 		track.style.transition = 'none';
 		updatePosition();
@@ -346,11 +461,9 @@ import Layout from '../layouts/Layout.astro';
 		updateIndicators();
 	}
 	
-	// Handle infinite loop jump
 	track.addEventListener('transitionend', () => {
 		isTransitioning = false;
 		
-		// Jump to real cards if we're on clones
 		if (currentIndex >= totalCards * 2) {
 			currentIndex = currentIndex - totalCards;
 			track.style.transition = 'none';
@@ -376,7 +489,6 @@ import Layout from '../layouts/Layout.astro';
 		});
 	});
 	
-	// Drag functionality
 	let isDragging = false;
 	let startX = 0;
 	let dragStartIndex = 0;
@@ -423,7 +535,6 @@ import Layout from '../layouts/Layout.astro';
 		}
 	});
 	
-	// Touch support
 	track.addEventListener('touchstart', (e) => {
 		isDragging = true;
 		startX = e.touches[0].pageX;
@@ -454,19 +565,11 @@ import Layout from '../layouts/Layout.astro';
 			goToSlide(currentIndex);
 		}
 	});
-	
-	// Keyboard navigation
+
 	document.addEventListener('keydown', (e) => {
 		if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
 		if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
 	});
-	
-	// Auto-play (optional - uncomment to enable)
-	// setInterval(() => {
-	// 	if (!isDragging) goToSlide(currentIndex + 1);
-	// }, 4000);
-	
-	// Initialize
 	setupInfiniteCarousel();
 </script>
 
@@ -1782,6 +1885,321 @@ import Layout from '../layouts/Layout.astro';
 		.projects-section .corner {
 			width: 30px;
 			height: 30px;
+		}
+	}
+	.pro-section {
+		width: 100%;
+		min-height: 100vh;
+		position: relative;
+		background: #fafafa;
+		scroll-snap-align: start;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 6rem 2rem 4rem 2rem;
+	}
+
+	.pro-lines-bg {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		justify-content: space-between;
+		padding: 0 10%;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.pro-vline {
+		width: 1px;
+		height: 100%;
+		background: linear-gradient(180deg, 
+			transparent 0%, 
+			#e6394612 20%, 
+			#e6394612 80%, 
+			transparent 100%
+		);
+	}
+
+	.pro-vline:nth-child(1) { opacity: 0.5; }
+	.pro-vline:nth-child(2) { opacity: 0.8; }
+	.pro-vline:nth-child(3) { opacity: 1; }
+	.pro-vline:nth-child(4) { opacity: 0.8; }
+	.pro-vline:nth-child(5) { opacity: 0.5; }
+
+	.pro-content {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding-bottom: 2rem;
+	}
+
+	.pro-header {
+		margin-bottom: 3rem;
+	}
+
+	.pro-label {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.pro-label-line {
+		width: 40px;
+		height: 2px;
+		background: #e63946;
+	}
+
+	.pro-label-text {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.3em;
+		color: #e63946;
+	}
+
+	.pro-title {
+		font-size: 3.5rem;
+		font-weight: 300;
+		color: #1a1a1a;
+		line-height: 1.1;
+		margin-bottom: 1rem;
+	}
+
+	.pro-title-accent {
+		font-weight: 700;
+		color: #e63946;
+	}
+
+	.pro-subtitle {
+		font-size: 1.1rem;
+		color: #666;
+		font-weight: 400;
+	}
+
+	.pro-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto;
+		gap: 1.5rem;
+		margin-bottom: 3rem;
+	}
+
+	.pro-card {
+		position: relative;
+		background: #ffffff;
+		border-radius: 2px;
+		overflow: hidden;
+		cursor: pointer;
+		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		border: 1px solid #e5e5e5;
+	}
+
+	.pro-card-featured {
+		grid-row: span 2;
+	}
+
+	.pro-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 3px;
+		height: 0;
+		background: #e63946;
+		transition: height 0.4s ease;
+	}
+
+	.pro-card:hover::before {
+		height: 100%;
+	}
+
+	.pro-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+		border-color: #e6394630;
+	}
+
+	.pro-card-bg {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(135deg, transparent 0%, #e6394605 100%);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+	}
+
+	.pro-card:hover .pro-card-bg {
+		opacity: 1;
+	}
+
+	.pro-card-content {
+		position: relative;
+		padding: 2rem;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.pro-card-featured .pro-card-content {
+		padding: 2.5rem;
+	}
+
+	.pro-card-top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1.5rem;
+	}
+
+	.pro-card-year {
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: #999;
+		font-family: 'Inter', monospace;
+	}
+
+	.pro-card-type {
+		font-size: 0.7rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		color: #e63946;
+		background: #e6394610;
+		padding: 0.35rem 0.75rem;
+		border-radius: 1px;
+		text-transform: uppercase;
+	}
+
+	.pro-card-title {
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: #1a1a1a;
+		margin-bottom: 0.75rem;
+		transition: color 0.3s ease;
+	}
+
+	.pro-card-featured .pro-card-title {
+		font-size: 1.8rem;
+	}
+
+	.pro-card:hover .pro-card-title {
+		color: #e63946;
+	}
+
+	.pro-card-desc {
+		font-size: 0.9rem;
+		color: #666;
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+		flex-grow: 1;
+	}
+
+	.pro-card-featured .pro-card-desc {
+		font-size: 1rem;
+	}
+
+	.pro-card-stack {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.pro-stack-item {
+		font-size: 0.75rem;
+		color: #666;
+		background: #f5f5f5;
+		padding: 0.4rem 0.8rem;
+		border-radius: 1px;
+		font-weight: 500;
+		transition: all 0.3s ease;
+	}
+
+	.pro-card:hover .pro-stack-item {
+		background: #e63946;
+		color: #fff;
+	}
+
+	.pro-card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 1rem;
+		border-top: 1px solid #eee;
+		margin-top: auto;
+	}
+
+	.pro-card-role {
+		font-size: 0.8rem;
+		color: #999;
+		font-weight: 500;
+	}
+
+	.pro-card-arrow {
+		width: 36px;
+		height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #f5f5f5;
+		border-radius: 50%;
+		color: #999;
+		transition: all 0.3s ease;
+	}
+
+	.pro-card:hover .pro-card-arrow {
+		background: #e63946;
+		color: #fff;
+		transform: rotate(-45deg);
+	}
+
+	/* Professional Section - Responsive */
+	@media (max-width: 1024px) {
+		.pro-content {
+			margin-left: 0;
+		}
+
+		.pro-title {
+			font-size: 2.5rem;
+		}
+
+		.pro-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.pro-card-featured {
+			grid-row: span 1;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.pro-section {
+			padding: 3rem 1rem;
+		}
+
+		.pro-content {
+			margin-left: 0;
+		}
+
+		.pro-title {
+			font-size: 2rem;
+		}
+
+		.pro-card-content {
+			padding: 1.5rem;
+		}
+
+		.pro-card-featured .pro-card-content {
+			padding: 1.5rem;
+		}
+
+		.pro-card-title {
+			font-size: 1.25rem;
+		}
+
+		.pro-card-featured .pro-card-title {
+			font-size: 1.25rem;
 		}
 	}
 </style>
