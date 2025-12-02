@@ -179,28 +179,43 @@
   /* Responsivo */
   @media (max-width: 768px) {
     .header {
-      width: 60px;
+      width: 50px;
       padding: 1rem 0;
     }
 
     .logo-text {
-      font-size: 0.7rem;
-    }
-
-    .nav-list {
-      gap: 1rem;
-    }
-
-    .nav-number {
       font-size: 0.65rem;
     }
 
+    .nav-list {
+      gap: 0.75rem;
+    }
+
+    .nav-number {
+      font-size: 0.6rem;
+    }
+
     .nav-line {
-      height: 15px;
+      height: 12px;
     }
 
     .nav-item.active .nav-line {
-      height: 25px;
+      height: 20px;
+    }
+
+    .status-text {
+      font-size: 0.55rem;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header {
+      display: none;
     }
   }
 </style>
