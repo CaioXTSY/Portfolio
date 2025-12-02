@@ -5,6 +5,16 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Caio Teixeira | Portfolio">
 	<main>
+		<!-- Background decorations -->
+		<div class="bg-grid"></div>
+		<div class="bg-decorations">
+			<!-- Corners -->
+			<div class="corner corner-tl"></div>
+			<div class="corner corner-tr"></div>
+			<div class="corner corner-bl"></div>
+			<div class="corner corner-br"></div>
+		</div>
+
 		<div class="name-container">
 			<div class="name-row">
 				<span class="first-name">CAIO</span>
@@ -62,6 +72,65 @@ import Layout from '../layouts/Layout.astro';
 		gap: 3rem;
 		position: relative;
 		background-color: #ffffff;
+		overflow: hidden;
+	}
+
+	/* Background Grid */
+	.bg-grid {
+		position: absolute;
+		inset: 0;
+		background-image: 
+			linear-gradient(to right, #e0e0e040 1px, transparent 1px),
+			linear-gradient(to bottom, #e0e0e040 1px, transparent 1px);
+		background-size: 80px 80px;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	/* Background Decorations */
+	.bg-decorations {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	/* Corners */
+	.corner {
+		position: absolute;
+		width: 60px;
+		height: 60px;
+		border-color: #e6394640;
+		border-style: solid;
+		border-width: 0;
+	}
+
+	.corner-tl {
+		top: 20px;
+		left: 20px;
+		border-top-width: 1px;
+		border-left-width: 1px;
+	}
+
+	.corner-tr {
+		top: 20px;
+		right: 20px;
+		border-top-width: 1px;
+		border-right-width: 1px;
+	}
+
+	.corner-bl {
+		bottom: 20px;
+		left: 20px;
+		border-bottom-width: 1px;
+		border-left-width: 1px;
+	}
+
+	.corner-br {
+		bottom: 20px;
+		right: 20px;
+		border-bottom-width: 1px;
+		border-right-width: 1px;
 	}
 
 	.name-container {
@@ -69,6 +138,8 @@ import Layout from '../layouts/Layout.astro';
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
+		position: relative;
+		z-index: 1;
 	}
 
 	.name-row {
@@ -106,6 +177,8 @@ import Layout from '../layouts/Layout.astro';
 		flex-direction: column;
 		align-items: center;
 		gap: 1.5rem;
+		position: relative;
+		z-index: 1;
 	}
 
 	.decoration-line {
@@ -227,6 +300,7 @@ import Layout from '../layouts/Layout.astro';
 		left: 50%;
 		transform: translateX(-50%);
 		display: flex;
+		z-index: 1;
 		flex-direction: column;
 		align-items: center;
 		gap: 0.5rem;
