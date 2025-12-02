@@ -88,6 +88,7 @@ import Layout from '../layouts/Layout.astro';
 		position: relative;
 		background-color: #ffffff;
 		overflow: hidden;
+		scroll-snap-align: start;
 	}
 
 	/* Background Grid */
@@ -400,6 +401,7 @@ import Layout from '../layouts/Layout.astro';
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		scroll-snap-align: start;
 	}
 
 	.section-header {
@@ -445,8 +447,13 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	@media (max-width: 768px) {
+		main {
+			padding-right: 60px;
+		}
+
 		.projects-section {
 			padding: 4rem 2rem;
+			padding-right: calc(2rem + 60px);
 		}
 
 		.section-title {
