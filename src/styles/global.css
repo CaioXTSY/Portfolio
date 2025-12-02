@@ -1,0 +1,44 @@
+/* Global Styles */
+
+:root {
+	--color-primary: #667eea;
+	--color-secondary: #764ba2;
+	--color-text: #e2e8f0;
+	--color-bg: #0f172a;
+	--color-border: #1e293b;
+}
+
+html {
+	color: var(--color-text);
+	background-color: var(--color-bg);
+}
+
+body {
+	font-family: system-ui, -apple-system, sans-serif;
+	line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+
+a {
+	color: var(--color-primary);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+a:hover {
+	color: var(--color-secondary);
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	border-radius: 0.5rem;
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+	transition: all 0.3s ease;
+}
