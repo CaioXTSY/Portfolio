@@ -3,5 +3,10 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()]
+  integrations: [tailwind()],
+  vite: {
+    preview: {
+      allowedHosts: ['dev323ast5.caiots.dev']
+    }
+  }
 });
