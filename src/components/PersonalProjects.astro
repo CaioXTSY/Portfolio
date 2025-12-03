@@ -1,957 +1,261 @@
-<section class="projects-section">
-	<div class="bg-grid"></div>
-	<div class="bg-decorations">
-		<div class="corner corner-tl"></div>
-		<div class="corner corner-tr"></div>
-		<div class="corner corner-bl"></div>
-		<div class="corner corner-br"></div>
-	</div>
+<section class="relative w-full min-h-screen py-24 px-4 md:px-16 bg-[#0a0a0a] flex flex-col items-center justify-center overflow-hidden snap-start projects-section">
+    
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none z-0"></div>
+    
+    <div class="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_800px_400px_at_20%_50%,rgba(230,57,70,0.06)_0%,transparent_70%),radial-gradient(ellipse_600px_300px_at_80%_30%,rgba(230,57,70,0.03)_0%,transparent_70%)]">
+        <div class="absolute w-[30px] h-[30px] md:w-[50px] md:h-[50px] border-solid border-0 border-[#e6394640] z-10 top-6 left-6 border-t border-l corner-tl"></div>
+        <div class="absolute w-[30px] h-[30px] md:w-[50px] md:h-[50px] border-solid border-0 border-[#e6394640] z-10 top-6 right-6 border-t border-r corner-tr"></div>
+        <div class="absolute w-[30px] h-[30px] md:w-[50px] md:h-[50px] border-solid border-0 border-[#e6394640] z-10 bottom-6 left-6 border-b border-l corner-bl"></div>
+        <div class="absolute w-[30px] h-[30px] md:w-[50px] md:h-[50px] border-solid border-0 border-[#e6394640] z-10 bottom-6 right-6 border-b border-r corner-br"></div>
+    </div>
 
-	<div class="section-header">
-		<h2 class="section-title">PERSONAL PROJECTS</h2>
-		<div class="section-decoration">
-			<span class="section-line"></span>
-			<span class="section-diamond"></span>
-			<span class="section-line"></span>
-		</div>
-	</div>
+    <div class="absolute top-0 left-0 right-0 h-[200px] bg-gradient-to-b from-[#0a0a0a] to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[#0a0a0a] to-transparent z-10 pointer-events-none"></div>
 
-	<div class="carousel-container">
-		<button class="carousel-btn prev" aria-label="Previous">
-			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-				<path d="M15 18l-6-6 6-6"/>
-			</svg>
-		</button>
-		
-		<div class="carousel-viewport">
-			<div class="carousel-track">
-				<!-- Project 1 -->
-				<div class="project-card">
-					<div class="card-stripes"></div>
-					<div class="card-image" style="background: linear-gradient(135deg, #450a0a 0%, #dc2626 100%);"></div>
-					<div class="card-content">
-						<div class="project-card-header">
-							<span class="project-label">Project</span>
-							<span class="project-indicator"></span>
-						</div>
-						<h4 class="project-name">Project Name</h4>
-						<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						<div class="project-tags">
-							<span class="tags-label">TECH STACK:</span>
-							<div class="tags-list">
-								<span class="tag">React</span>
-								<span class="tag">TypeScript</span>
-								<span class="tag">Node.js</span>
-							</div>
-						</div>
-					</div>
-				</div>
+    <div class="flex flex-col items-center gap-4 mb-16 md:ml-[-80px] relative z-20">
+        <h2 class="text-xl md:text-3xl font-semibold text-white tracking-[0.15em] md:tracking-[0.3em] relative [text-shadow:0_0_30px_rgba(230,57,70,0.2)] 
+            before:content-['//'] before:hidden md:before:block before:absolute before:-left-10 before:text-[#e63946] before:font-normal before:opacity-50
+            after:content-[''] after:hidden md:after:block after:absolute after:-bottom-2.5 after:left-1/2 after:-translate-x-1/2 after:w-[60%] after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-[#e6394650] after:to-transparent">
+            PERSONAL PROJECTS
+        </h2>
+        <div class="flex items-center gap-2">
+            <span class="w-[30px] h-[1px] bg-white/25 relative overflow-hidden after:content-[''] after:absolute after:top-0 after:-left-full after:w-full after:h-full after:bg-[#e63946] after:animate-[lineMove_2s_linear_infinite]"></span>
+            <span class="w-2 h-2 bg-[#e63946] rotate-45 shadow-[0_0_10px_rgba(230,57,70,0.5)] animate-[diamondPulse_2s_ease-in-out_infinite]"></span>
+            <span class="w-[30px] h-[1px] bg-white/25 relative overflow-hidden after:content-[''] after:absolute after:top-0 after:-left-full after:w-full after:h-full after:bg-[#e63946] after:animate-[lineMove_2s_linear_infinite]"></span>
+        </div>
+    </div>
 
-				<!-- Project 2 -->
-				<div class="project-card">
-					<div class="card-stripes"></div>
-					<div class="card-image" style="background: linear-gradient(135deg, #450a0a 0%, #dc2626 100%);"></div>
-					<div class="card-content">
-						<div class="project-card-header">
-							<span class="project-label">Project</span>
-							<span class="project-indicator"></span>
-						</div>
-						<h4 class="project-name">Project Name</h4>
-						<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						<div class="project-tags">
-							<span class="tags-label">TECH STACK:</span>
-							<div class="tags-list">
-								<span class="tag">React</span>
-								<span class="tag">TypeScript</span>
-								<span class="tag">Node.js</span>
-							</div>
-						</div>
-					</div>
-				</div>
+    <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 w-full max-w-[1400px] md:ml-[-80px] relative z-20">
+        
+        <button class="carousel-btn prev hidden md:flex w-14 h-14 border-2 border-[#e63946] bg-transparent text-[#e63946] cursor-pointer items-center justify-center shrink-0 relative overflow-hidden transition-all duration-300 group hover:shadow-[0_0_20px_rgba(230,57,70,0.3)]" aria-label="Previous">
+            <div class="absolute inset-0 bg-[#e63946] -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0"></div>
+            <svg class="w-6 h-6 relative z-10 transition-colors duration-300 group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+        
+        <div class="flex-1 overflow-hidden py-8 w-full order-1 md:order-none">
+            <div class="carousel-track flex gap-6 cursor-grab select-none active:cursor-grabbing">
+                <div class="project-card group w-[280px] md:w-[340px] shrink-0 bg-[#111] border border-[#222] border-l-4 border-l-transparent transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer relative overflow-hidden 
+                    hover:border-l-[#e63946] hover:-translate-y-2 hover:scale-[1.02] hover:bg-[#151515] hover:shadow-[0_8px_32px_rgba(230,57,70,0.2),0_0_0_1px_rgba(230,57,70,0.2),inset_0_1px_0_rgba(230,57,70,0.1)]">
+                    
+                    <div class="absolute inset-0 opacity-50 pointer-events-none bg-[repeating-linear-gradient(90deg,transparent,transparent_20px,rgba(255,255,255,0.02)_20px,rgba(255,255,255,0.02)_21px)]"></div>
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(230,57,70,0.08)_0%,transparent_60%)] opacity-0 transition-opacity duration-400 ease-out group-hover:opacity-100"></div>
+                    <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#e63946] to-transparent scale-x-0 transition-transform duration-400 ease-out group-hover:scale-x-100"></div>
+                    
+                    <div class="w-full h-[140px] md:h-[180px] bg-[#1a1a1a] bg-cover bg-center" style="background: linear-gradient(135deg, #450a0a 0%, #dc2626 100%);"></div>
+                    
+                    <div class="relative z-10 p-4 md:p-6 flex flex-col gap-3">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs text-gray-500 font-medium tracking-wide font-inter group-hover:text-[#e63946] transition-colors">Project</span>
+                            <span class="w-3 h-3 rounded-full bg-[#333] shrink-0 group-hover:bg-[#e63946] group-hover:shadow-[0_0_12px_rgba(230,57,70,0.5)] transition-colors"></span>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold text-white font-inter leading-tight tracking-tight group-hover:text-[#e63946] transition-colors">Project Name</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed font-inter font-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div class="flex flex-col gap-2 mt-1">
+                            <span class="text-[10px] font-semibold text-gray-500 tracking-widest font-inter uppercase">TECH STACK:</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-3 py-1.5 border border-[#333] bg-transparent text-gray-400 font-medium transition-all duration-200 font-inter group-hover:bg-[#e63946] group-hover:border-[#e63946] group-hover:text-white">React</span>
+                                <span class="text-xs px-3 py-1.5 border border-[#333] bg-transparent text-gray-400 font-medium transition-all duration-200 font-inter group-hover:bg-[#e63946] group-hover:border-[#e63946] group-hover:text-white">TypeScript</span>
+                                <span class="text-xs px-3 py-1.5 border border-[#333] bg-transparent text-gray-400 font-medium transition-all duration-200 font-inter group-hover:bg-[#e63946] group-hover:border-[#e63946] group-hover:text-white">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+        </div>
+        
+        <button class="carousel-btn next hidden md:flex w-14 h-14 border-2 border-[#e63946] bg-transparent text-[#e63946] cursor-pointer items-center justify-center shrink-0 relative overflow-hidden transition-all duration-300 group hover:shadow-[0_0_20px_rgba(230,57,70,0.3)]" aria-label="Next">
+            <div class="absolute inset-0 bg-[#e63946] -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0"></div>
+            <svg class="w-6 h-6 relative z-10 transition-colors duration-300 group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+    </div>
 
-				<!-- Project 3 -->
-				<div class="project-card">
-					<div class="card-stripes"></div>
-					<div class="card-image" style="background: linear-gradient(135deg, #450a0a 0%, #dc2626 100%);"></div>
-					<div class="card-content">
-						<div class="project-card-header">
-							<span class="project-label">Project</span>
-							<span class="project-indicator"></span>
-						</div>
-						<h4 class="project-name">Project Name</h4>
-						<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						<div class="project-tags">
-							<span class="tags-label">TECH STACK:</span>
-							<div class="tags-list">
-								<span class="tag">React</span>
-								<span class="tag">TypeScript</span>
-								<span class="tag">Node.js</span>
-							</div>
-						</div>
-					</div>
-				</div>
+    <div class="flex justify-center gap-3 mt-8 md:ml-[-80px] relative z-20">
+        <button class="indicator w-3 h-3 border-2 border-[#e63946]/50 bg-transparent rotate-45 p-0 relative transition-all duration-300 hover:border-[#e63946] hover:shadow-[0_0_10px_rgba(230,57,70,0.5)] active [&.active]:bg-[#e63946] [&.active]:border-[#e63946] [&.active]:shadow-[0_0_15px_rgba(230,57,70,0.8)]" data-index="0">
+            <span class="absolute inset-[2px] bg-[#e63946] scale-0 transition-transform duration-300"></span>
+        </button>
+        <button class="indicator w-3 h-3 border-2 border-[#e63946]/50 bg-transparent rotate-45 p-0 relative transition-all duration-300 hover:border-[#e63946] hover:shadow-[0_0_10px_rgba(230,57,70,0.5)] active [&.active]:bg-[#e63946] [&.active]:border-[#e63946] [&.active]:shadow-[0_0_15px_rgba(230,57,70,0.8)]" data-index="1"></button>
+    </div>
 
-				<!-- Project 4 -->
-				<div class="project-card">
-					<div class="card-stripes"></div>
-					<div class="card-image" style="background: linear-gradient(135deg, #450a0a 0%, #dc2626 100%);"></div>
-					<div class="card-content">
-						<div class="project-card-header">
-							<span class="project-label">Project</span>
-							<span class="project-indicator"></span>
-						</div>
-						<h4 class="project-name">Project Name</h4>
-						<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						<div class="project-tags">
-							<span class="tags-label">TECH STACK:</span>
-							<div class="tags-list">
-								<span class="tag">React</span>
-								<span class="tag">TypeScript</span>
-								<span class="tag">Node.js</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 5 -->
-				<div class="project-card">
-					<div class="card-stripes"></div>
-					<div class="card-image" style="background: linear-gradient(135deg, #450a0a 0%, #dc2626 100%);"></div>
-					<div class="card-content">
-						<div class="project-card-header">
-							<span class="project-label">Project</span>
-							<span class="project-indicator"></span>
-						</div>
-						<h4 class="project-name">Project Name</h4>
-						<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						<div class="project-tags">
-							<span class="tags-label">TECH STACK:</span>
-							<div class="tags-list">
-								<span class="tag">React</span>
-								<span class="tag">TypeScript</span>
-								<span class="tag">Node.js</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 6 -->
-				<div class="project-card">
-					<div class="card-stripes"></div>
-					<div class="card-image" style="background: linear-gradient(135deg, #450a0a 0%, #dc2626 100%);"></div>
-					<div class="card-content">
-						<div class="project-card-header">
-							<span class="project-label">Project</span>
-							<span class="project-indicator"></span>
-						</div>
-						<h4 class="project-name">Project Name</h4>
-						<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						<div class="project-tags">
-							<span class="tags-label">TECH STACK:</span>
-							<div class="tags-list">
-								<span class="tag">React</span>
-								<span class="tag">TypeScript</span>
-								<span class="tag">Node.js</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 7 -->
-				<div class="project-card">
-					<div class="card-stripes"></div>
-					<div class="card-image" style="background: linear-gradient(135deg, #450a0a 0%, #dc2626 100%);"></div>
-					<div class="card-content">
-						<div class="project-card-header">
-							<span class="project-label">Project</span>
-							<span class="project-indicator"></span>
-						</div>
-						<h4 class="project-name">Project Name</h4>
-						<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						<div class="project-tags">
-							<span class="tags-label">TECH STACK:</span>
-							<div class="tags-list">
-								<span class="tag">React</span>
-								<span class="tag">TypeScript</span>
-								<span class="tag">Node.js</span>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 8 -->
-				<div class="project-card">
-					<div class="card-stripes"></div>
-					<div class="card-image" style="background: linear-gradient(135deg, #450a0a 0%, #dc2626 100%);"></div>
-					<div class="card-content">
-						<div class="project-card-header">
-							<span class="project-label">Project</span>
-							<span class="project-indicator"></span>
-						</div>
-						<h4 class="project-name">Project Name</h4>
-						<p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						<div class="project-tags">
-							<span class="tags-label">TECH STACK:</span>
-							<div class="tags-list">
-								<span class="tag">React</span>
-								<span class="tag">TypeScript</span>
-								<span class="tag">Node.js</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<button class="carousel-btn next" aria-label="Next">
-			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-				<path d="M9 18l6-6-6-6"/>
-			</svg>
-		</button>
-	</div>
-
-	<div class="carousel-indicators">
-		<button class="indicator active" data-index="0"></button>
-		<button class="indicator" data-index="1"></button>
-		<button class="indicator" data-index="2"></button>
-		<button class="indicator" data-index="3"></button>
-		<button class="indicator" data-index="4"></button>
-		<button class="indicator" data-index="5"></button>
-		<button class="indicator" data-index="6"></button>
-		<button class="indicator" data-index="7"></button>
-	</div>
 </section>
 
-<script>
-	const track = document.querySelector('.carousel-track') as HTMLElement;
-	const cards = Array.from(document.querySelectorAll('.project-card'));
-	const prevBtn = document.querySelector('.carousel-btn.prev');
-	const nextBtn = document.querySelector('.carousel-btn.next');
-	const indicators = document.querySelectorAll('.indicator');
-	
-	const totalCards = cards.length;
-	const cardWidth = 360;
-	let currentIndex = 0;
-	let isTransitioning = false;
-	
-	function setupInfiniteCarousel() {
-		cards.forEach(card => {
-			const clone = card.cloneNode(true) as HTMLElement;
-			clone.classList.add('clone');
-			track.appendChild(clone);
-		});
-		
-		for (let i = cards.length - 1; i >= 0; i--) {
-			const clone = cards[i].cloneNode(true) as HTMLElement;
-			clone.classList.add('clone');
-			track.insertBefore(clone, track.firstChild);
-		}
-		
-		currentIndex = totalCards;
-		track.style.transition = 'none';
-		updatePosition();
-	}
-	
-	function updatePosition() {
-		const offset = -currentIndex * cardWidth;
-		track.style.transform = `translateX(${offset}px)`;
-	}
-	
-	function updateIndicators() {
-		const realIndex = ((currentIndex - totalCards) % totalCards + totalCards) % totalCards;
-		indicators.forEach((ind, i) => {
-			ind.classList.toggle('active', i === realIndex);
-		});
-	}
-	
-	function goToSlide(index: number, smooth = true) {
-		if (isTransitioning) return;
-		
-		currentIndex = index;
-		
-		if (smooth) {
-			track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-			isTransitioning = true;
-		} else {
-			track.style.transition = 'none';
-		}
-		
-		updatePosition();
-		updateIndicators();
-	}
-	
-	track.addEventListener('transitionend', () => {
-		isTransitioning = false;
-		
-		if (currentIndex >= totalCards * 2) {
-			currentIndex = currentIndex - totalCards;
-			track.style.transition = 'none';
-			updatePosition();
-		} else if (currentIndex < totalCards) {
-			currentIndex = currentIndex + totalCards;
-			track.style.transition = 'none';
-			updatePosition();
-		}
-	});
-	
-	prevBtn?.addEventListener('click', () => {
-		goToSlide(currentIndex - 1);
-	});
-	
-	nextBtn?.addEventListener('click', () => {
-		goToSlide(currentIndex + 1);
-	});
-	
-	indicators.forEach((indicator, i) => {
-		indicator.addEventListener('click', () => {
-			goToSlide(totalCards + i);
-		});
-	});
-	
-	let isDragging = false;
-	let startX = 0;
-	let dragStartIndex = 0;
-	
-	track.addEventListener('mousedown', (e) => {
-		isDragging = true;
-		startX = e.pageX;
-		dragStartIndex = currentIndex;
-		track.style.cursor = 'grabbing';
-		track.style.transition = 'none';
-	});
-	
-	track.addEventListener('mousemove', (e) => {
-		if (!isDragging) return;
-		e.preventDefault();
-		const x = e.pageX;
-		const walk = startX - x;
-		const offset = -(dragStartIndex * cardWidth + walk);
-		track.style.transform = `translateX(${offset}px)`;
-	});
-	
-	track.addEventListener('mouseup', (e) => {
-		if (!isDragging) return;
-		isDragging = false;
-		track.style.cursor = 'grab';
-		
-		const walk = startX - e.pageX;
-		const threshold = 100;
-		
-		if (walk > threshold) {
-			goToSlide(currentIndex + 1);
-		} else if (walk < -threshold) {
-			goToSlide(currentIndex - 1);
-		} else {
-			goToSlide(currentIndex);
-		}
-	});
-	
-	track.addEventListener('mouseleave', () => {
-		if (isDragging) {
-			isDragging = false;
-			track.style.cursor = 'grab';
-			goToSlide(currentIndex);
-		}
-	});
-	
-	track.addEventListener('touchstart', (e) => {
-		isDragging = true;
-		startX = e.touches[0].pageX;
-		dragStartIndex = currentIndex;
-		track.style.transition = 'none';
-	});
-	
-	track.addEventListener('touchmove', (e) => {
-		if (!isDragging) return;
-		const x = e.touches[0].pageX;
-		const walk = startX - x;
-		const offset = -(dragStartIndex * cardWidth + walk);
-		track.style.transform = `translateX(${offset}px)`;
-	});
-	
-	track.addEventListener('touchend', (e) => {
-		if (!isDragging) return;
-		isDragging = false;
-		
-		const walk = startX - (e.changedTouches[0]?.pageX || startX);
-		const threshold = 50;
-		
-		if (walk > threshold) {
-			goToSlide(currentIndex + 1);
-		} else if (walk < -threshold) {
-			goToSlide(currentIndex - 1);
-		} else {
-			goToSlide(currentIndex);
-		}
-	});
-
-	document.addEventListener('keydown', (e) => {
-		if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
-		if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
-	});
-	
-	setupInfiniteCarousel();
-</script>
-
 <style>
-	.projects-section {
-		width: 100%;
-		min-height: 100vh;
-		padding: 6rem 4rem;
-		background-color: #0a0a0a;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		scroll-snap-align: start;
-		position: relative;
-		overflow: hidden;
-	}
-
-	.projects-section .bg-grid {
-		position: absolute;
-		inset: 0;
-		background-image: 
-			linear-gradient(to right, #ffffff08 1px, transparent 1px),
-			linear-gradient(to bottom, #ffffff08 1px, transparent 1px);
-		background-size: 80px 80px;
-		background-position: center center;
-		pointer-events: none;
-		z-index: 0;
-	}
-
-	.projects-section::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 200px;
-		background: linear-gradient(180deg, #0a0a0a 0%, transparent 100%);
-		z-index: 1;
-		pointer-events: none;
-	}
-
-	.projects-section::after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 200px;
-		background: linear-gradient(0deg, #0a0a0a 0%, transparent 100%);
-		z-index: 1;
-		pointer-events: none;
-	}
-
-	.projects-section .bg-decorations {
-		position: absolute;
-		inset: 0;
-		pointer-events: none;
-		z-index: 0;
-		background: 
-			radial-gradient(ellipse 800px 400px at 20% 50%, #e6394610 0%, transparent 70%),
-			radial-gradient(ellipse 600px 300px at 80% 30%, #e6394608 0%, transparent 70%);
-	}
-
-	.projects-section .corner {
-		position: absolute;
-		width: 50px;
-		height: 50px;
-		border-color: #e6394640;
-		border-style: solid;
-		border-width: 0;
-		z-index: 2;
-	}
-
-	.projects-section .corner-tl {
-		top: 25px;
-		left: 25px;
-		border-top-width: 1px;
-		border-left-width: 1px;
-	}
-
-	.projects-section .corner-tr {
-		top: 25px;
-		right: 25px;
-		border-top-width: 1px;
-		border-right-width: 1px;
-	}
-
-	.projects-section .corner-bl {
-		bottom: 25px;
-		left: 25px;
-		border-bottom-width: 1px;
-		border-left-width: 1px;
-	}
-
-	.projects-section .corner-br {
-		bottom: 25px;
-		right: 25px;
-		border-bottom-width: 1px;
-		border-right-width: 1px;
-	}
-
-	.section-header {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
-		margin-bottom: 4rem;
-		margin-left: -80px; 
-		position: relative;
-		z-index: 2;
-	}
-
-	.section-title {
-		font-size: 2rem;
-		font-weight: 600;
-		color: #ffffff;
-		letter-spacing: 0.3em;
-		position: relative;
-		text-shadow: 0 0 30px #e6394630;
-	}
-
-	.section-title::before {
-		content: '//';
-		position: absolute;
-		left: -40px;
-		color: #e63946;
-		font-weight: 400;
-		opacity: 0.5;
-	}
-
-	.section-title::after {
-		content: '';
-		position: absolute;
-		bottom: -10px;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 60%;
-		height: 1px;
-		background: linear-gradient(90deg, transparent, #e6394650, transparent);
-	}
-
-	.section-decoration {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.section-line {
-		width: 30px;
-		height: 1px;
-		background-color: #ffffff40;
-		position: relative;
-		overflow: hidden;
-	}
-
-	.section-line::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: -100%;
-		width: 100%;
-		height: 100%;
-		background: #e63946;
-		animation: section-line-move 2s linear infinite;
-	}
-
-	@keyframes section-line-move {
-		0% { left: -100%; }
-		100% { left: 200%; }
-	}
-
-	.section-diamond {
-		width: 8px;
-		height: 8px;
-		background-color: #e63946;
-		transform: rotate(45deg);
-		box-shadow: 0 0 10px #e6394680;
-		animation: section-diamond-pulse 2s ease-in-out infinite;
-	}
-
-	@keyframes section-diamond-pulse {
-		0%, 100% { box-shadow: 0 0 10px #e6394680; }
-		50% { box-shadow: 0 0 20px #e63946; }
-	}
-
-	/* Carousel */
-	.carousel-container {
-		display: flex;
-		align-items: center;
-		gap: 2rem;
-		width: 100%;
-		max-width: 1400px;
-		margin-left: -80px;
-		position: relative;
-		z-index: 2;
-	}
-
-	.carousel-viewport {
-		flex: 1;
-		overflow: hidden;
-		padding: 2rem 0;
-	}
-
-	.carousel-track {
-		display: flex;
-		gap: 24px;
-		cursor: grab;
-		transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-		user-select: none;
-	}
-
-	.carousel-btn {
-		width: 56px;
-		height: 56px;
-		border: 2px solid #e63946;
-		background: transparent;
-		color: #e63946;
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-		flex-shrink: 0;
-		position: relative;
-		overflow: hidden;
-	}
-
-	.carousel-btn::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: #e63946;
-		transform: translateX(-100%);
-		transition: transform 0.3s ease;
-	}
-
-	.carousel-btn:hover::before {
-		transform: translateX(0);
-	}
-
-	.carousel-btn svg {
-		position: relative;
-		z-index: 1;
-		transition: color 0.3s ease;
-	}
-
-	.carousel-btn:hover {
-		box-shadow: 0 0 20px #e6394650;
-	}
-
-	.carousel-btn:hover svg {
-		color: #ffffff;
-	}
-
-	.carousel-indicators {
-		display: flex;
-		justify-content: center;
-		gap: 12px;
-		margin-top: 2rem;
-		margin-left: -80px;
-		position: relative;
-		z-index: 2;
-	}
-
-	.indicator {
-		width: 12px;
-		height: 12px;
-		border: 2px solid #e6394650;
-		background: transparent;
-		cursor: pointer;
-		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-		transform: rotate(45deg);
-		padding: 0;
-		position: relative;
-	}
-
-	.indicator::after {
-		content: '';
-		position: absolute;
-		inset: 2px;
-		background: #e63946;
-		transform: scale(0);
-		transition: transform 0.3s ease;
-	}
-
-	.indicator:hover {
-		border-color: #e63946;
-		box-shadow: 0 0 10px #e6394650;
-	}
-
-	.indicator:hover::after,
-	.indicator.active::after {
-		transform: scale(1);
-	}
-
-	.indicator.active {
-		background: #e63946;
-		border-color: #e63946;
-		box-shadow: 0 0 15px #e6394680;
-	}
-
-	.project-card {
-		width: 340px;
-		flex-shrink: 0;
-		background-color: #111111;
-		border: 1px solid #222222;
-		border-left: 4px solid transparent;
-		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-		cursor: pointer;
-		position: relative;
-		overflow: hidden;
-	}
-
-	.project-card::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 2px;
-		background: linear-gradient(90deg, transparent, #e63946, transparent);
-		transform: scaleX(0);
-		transition: transform 0.4s ease;
-	}
-
-	.project-card::after {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(circle at 50% 0%, #e6394615 0%, transparent 60%);
-		opacity: 0;
-		transition: opacity 0.4s ease;
-	}
-
-	.project-card:hover::before,
-	.project-card:focus::before {
-		transform: scaleX(1);
-	}
-
-	.project-card:hover::after,
-	.project-card:focus::after {
-		opacity: 1;
-	}
-
-	.project-card:hover,
-	.project-card:focus {
-		border-left-color: #e63946;
-		box-shadow: 
-			0 8px 32px rgba(230, 57, 70, 0.2),
-			0 0 0 1px #e6394630,
-			inset 0 1px 0 #e6394620;
-		transform: translateY(-8px) scale(1.02);
-		background-color: #151515;
-	}
-
-	.card-stripes {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-image: repeating-linear-gradient(
-			90deg,
-			transparent,
-			transparent 20px,
-			#ffffff05 20px,
-			#ffffff05 21px
-		);
-		pointer-events: none;
-		opacity: 0.5;
-	}
-
-	.card-image {
-		width: 100%;
-		height: 180px;
-		background-color: #1a1a1a;
-		background-size: cover;
-		background-position: center;
-	}
-
-	.card-content {
-		position: relative;
-		z-index: 1;
-		padding: 1.5rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-	}
-
-	.project-card-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-	}
-
-	.project-label {
-		font-size: 0.75rem;
-		color: #6b7280;
-		font-family: 'Inter', system-ui, sans-serif;
-		font-weight: 500;
-		letter-spacing: 0.05em;
-	}
-
-	.project-card:hover .project-label {
-		color: #e63946;
-	}
-
-	.project-indicator {
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		background-color: #333333;
-		flex-shrink: 0;
-	}
-
-	.project-card:hover .project-indicator {
-		background-color: #e63946;
-		box-shadow: 0 0 12px rgba(230, 57, 70, 0.5);
-	}
-
-	.project-name {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: #ffffff;
-		font-family: 'Inter', system-ui, sans-serif;
-		line-height: 1.3;
-		letter-spacing: -0.01em;
-	}
-
-	.project-card:hover .project-name {
-		color: #e63946;
-	}
-
-	.project-description {
-		font-size: 0.875rem;
-		color: #9ca3af;
-		line-height: 1.6;
-		font-family: 'Inter', system-ui, sans-serif;
-		font-weight: 400;
-	}
-
-	.project-tags {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		margin-top: 0.25rem;
-	}
-
-	.tags-label {
-		font-size: 0.625rem;
-		font-weight: 600;
-		color: #6b7280;
-		letter-spacing: 0.1em;
-		font-family: 'Inter', system-ui, sans-serif;
-		text-transform: uppercase;
-	}
-
-	.tags-list {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-	}
-
-	.tag {
-		font-size: 0.75rem;
-		padding: 0.375rem 0.75rem;
-		border: 1px solid #333333;
-		background-color: transparent;
-		color: #9ca3af;
-		font-weight: 500;
-		transition: all 0.2s ease;
-		font-family: 'Inter', system-ui, sans-serif;
-	}
-
-	.project-card:hover .tag {
-		background-color: #e63946;
-		border-color: #e63946;
-		color: #fff;
-	}
-
-	@media (max-width: 1024px) {
-		.carousel-container {
-			gap: 1rem;
-			margin-left: 0;
-		}
-
-		.carousel-btn {
-			width: 44px;
-			height: 44px;
-		}
-
-		.project-card {
-			width: 300px;
-		}
-
-		.section-header {
-			margin-left: 0;
-		}
-
-		.carousel-indicators {
-			margin-left: 0;
-		}
-	}
-
-	@media (max-width: 768px) {
-		.projects-section {
-			padding: 3rem 1rem;
-		}
-
-		.section-header {
-			margin-left: 0;
-			margin-bottom: 2rem;
-		}
-
-		.section-title {
-			font-size: 1.2rem;
-			letter-spacing: 0.15em;
-		}
-
-		.section-title::before {
-			display: none;
-		}
-
-		.carousel-container {
-			flex-direction: column;
-			gap: 1rem;
-			margin-left: 0;
-		}
-
-		.carousel-viewport {
-			width: 100%;
-			order: 1;
-		}
-
-		.carousel-btn {
-			display: none;
-		}
-
-		.project-card {
-			width: 280px;
-		}
-
-		.card-image {
-			height: 140px;
-		}
-
-		.project-name {
-			font-size: 1.25rem;
-		}
-
-		.card-content {
-			padding: 1rem;
-		}
-
-		.carousel-indicators {
-			margin-left: 0;
-		}
-
-		.projects-section .corner {
-			width: 30px;
-			height: 30px;
-		}
-	}
+    @keyframes lineMove { 0% { left: -100%; } 100% { left: 200%; } }
+    @keyframes diamondPulse { 0%, 100% { box-shadow: 0 0 10px rgba(230, 57, 70, 0.5); } 50% { box-shadow: 0 0 20px #e63946; } }
+    
+    .indicator.active span { transform: scale(1); }
 </style>
+
+<script>
+    const track = document.querySelector('.carousel-track');
+    const cards = Array.from(document.querySelectorAll('.project-card'));
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    const cardWidth = window.innerWidth < 768 ? 304 : 364; 
+    
+    const totalCards = cards.length;
+    let currentIndex = 0;
+    let isTransitioning = false;
+    
+    function setupInfiniteCarousel() {
+        if (!track) return;
+        
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            clone.classList.add('clone');
+            track.appendChild(clone);
+        });
+        
+        for (let i = cards.length - 1; i >= 0; i--) {
+            const clone = cards[i].cloneNode(true);
+            clone.classList.add('clone');
+            track.insertBefore(clone, track.firstChild);
+        }
+        
+        currentIndex = totalCards;
+        track.style.transition = 'none';
+        updatePosition();
+    }
+    
+    function updatePosition() {
+        if (!track) return;
+        const offset = -currentIndex * cardWidth;
+        track.style.transform = `translateX(${offset}px)`;
+    }
+    
+    function updateIndicators() {
+        const realIndex = ((currentIndex - totalCards) % totalCards + totalCards) % totalCards;
+        indicators.forEach((ind, i) => {
+            ind.classList.toggle('active', i === realIndex);
+            const span = ind.querySelector('span');
+            if(span) span.style.transform = i === realIndex ? 'scale(1)' : 'scale(0)';
+        });
+    }
+    
+    function goToSlide(index, smooth = true) {
+        if (isTransitioning || !track) return;
+        
+        currentIndex = index;
+        
+        if (smooth) {
+            track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            isTransitioning = true;
+        } else {
+            track.style.transition = 'none';
+        }
+        
+        updatePosition();
+        updateIndicators();
+    }
+    
+    if (track) {
+        track.addEventListener('transitionend', () => {
+            isTransitioning = false;
+            
+            if (currentIndex >= totalCards * 2) {
+                currentIndex = currentIndex - totalCards;
+                track.style.transition = 'none';
+                updatePosition();
+            } else if (currentIndex < totalCards) {
+                currentIndex = currentIndex + totalCards;
+                track.style.transition = 'none';
+                updatePosition();
+            }
+        });
+    }
+    
+    if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+    
+    indicators.forEach((indicator, i) => {
+        indicator.addEventListener('click', () => {
+            goToSlide(totalCards + i);
+        });
+    });
+    
+    let isDragging = false;
+    let startX = 0;
+    let dragStartIndex = 0;
+    
+    if (track) {
+        track.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX;
+            dragStartIndex = currentIndex;
+            track.style.cursor = 'grabbing';
+            track.style.transition = 'none';
+        });
+        
+        track.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX;
+            const walk = startX - x;
+            const offset = -(dragStartIndex * cardWidth + walk);
+            track.style.transform = `translateX(${offset}px)`;
+        });
+        
+        track.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            track.style.cursor = 'grab';
+            
+            const walk = startX - e.pageX;
+            const threshold = 100;
+            
+            if (walk > threshold) {
+                goToSlide(currentIndex + 1);
+            } else if (walk < -threshold) {
+                goToSlide(currentIndex - 1);
+            } else {
+                goToSlide(currentIndex);
+            }
+        });
+        
+        track.addEventListener('mouseleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                track.style.cursor = 'grab';
+                goToSlide(currentIndex);
+            }
+        });
+
+        track.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].pageX;
+            dragStartIndex = currentIndex;
+            track.style.transition = 'none';
+        });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const x = e.touches[0].pageX;
+            const walk = startX - x;
+            const offset = -(dragStartIndex * cardWidth + walk);
+            track.style.transform = `translateX(${offset}px)`;
+        });
+
+        track.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            const walk = startX - (e.changedTouches[0]?.pageX || startX);
+            const threshold = 50;
+            if (walk > threshold) goToSlide(currentIndex + 1);
+            else if (walk < -threshold) goToSlide(currentIndex - 1);
+            else goToSlide(currentIndex);
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+        if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+    });
+    
+    setupInfiniteCarousel();
+</script>
