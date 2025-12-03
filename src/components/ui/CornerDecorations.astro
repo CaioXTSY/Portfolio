@@ -1,0 +1,26 @@
+---
+interface Props {
+  variant?: 'dark' | 'light';
+}
+
+const { variant = 'dark' } = Astro.props;
+
+const isDark = variant === 'dark';
+const borderColor = isDark ? 'border-[#e6394640]' : 'border-red-500/25';
+const dotColor = isDark ? 'bg-[#e63946]' : 'bg-red-500';
+---
+
+<div class="absolute inset-0 pointer-events-none z-0">
+  <div class={`absolute w-[30px] h-[30px] md:w-[50px] md:h-[50px] border-solid border-0 ${borderColor} z-10 top-6 left-6 border-t border-l`}>
+    <span class={`absolute -top-1 -left-1 w-1.5 h-1.5 ${dotColor} rotate-45 sm:w-2 sm:h-2`}></span>
+  </div>
+  <div class={`absolute w-[30px] h-[30px] md:w-[50px] md:h-[50px] border-solid border-0 ${borderColor} z-10 top-6 right-6 border-t border-r`}>
+    <span class={`absolute -top-1 -right-1 w-1.5 h-1.5 ${dotColor} rotate-45 sm:w-2 sm:h-2`}></span>
+  </div>
+  <div class={`absolute w-[30px] h-[30px] md:w-[50px] md:h-[50px] border-solid border-0 ${borderColor} z-10 bottom-6 left-6 border-b border-l`}>
+    <span class={`absolute -bottom-1 -left-1 w-1.5 h-1.5 ${dotColor} rotate-45 sm:w-2 sm:h-2`}></span>
+  </div>
+  <div class={`absolute w-[30px] h-[30px] md:w-[50px] md:h-[50px] border-solid border-0 ${borderColor} z-10 bottom-6 right-6 border-b border-r`}>
+    <span class={`absolute -bottom-1 -right-1 w-1.5 h-1.5 ${dotColor} rotate-45 sm:w-2 sm:h-2`}></span>
+  </div>
+</div>

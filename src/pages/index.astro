@@ -1,13 +1,14 @@
 ﻿---
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
-import HeroSection from '../components/HeroSection.astro';
-import StackSection from '../components/StackSection.astro';
-import ProfessionalProjects from '../components/ProfessionalProjects.astro';
-import PersonalProjects from '../components/PersonalProjects.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import StackSection from '../components/sections/StackSection.astro';
+import ProfessionalProjects from '../components/sections/ProfessionalProjects.astro';
+import PersonalProjects from '../components/sections/PersonalProjects.astro';
+import { siteConfig } from '../data/navigation';
 ---
 
-<Layout title="Caio Teixeira | Portfolio">
+<Layout title={`${siteConfig.name} | Portfolio`}>
 	<HeroSection />
 	<StackSection />
 	<ProfessionalProjects />

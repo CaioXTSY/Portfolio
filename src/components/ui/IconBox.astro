@@ -1,0 +1,12 @@
+---
+interface Props {
+  icon: string;
+}
+
+const { icon } = Astro.props;
+---
+
+<div class="group/icon flex items-center justify-center aspect-square bg-[#1a1a1a] border border-[#e6394620] relative transition-all duration-300 hover:border-[#e63946] hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(230,57,70,0.2)]">
+  <div class="absolute inset-0 bg-gradient-to-br from-[#e6394610] to-transparent opacity-0 transition-opacity duration-300 group-hover/icon:opacity-100"></div>
+  <i class={`${icon} text-3xl md:text-[2.5rem] text-[#888] transition-all duration-300 group-hover/icon:text-[#e63946] group-hover/icon:scale-110`}></i>
+</div>

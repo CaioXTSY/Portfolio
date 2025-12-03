@@ -1,0 +1,37 @@
+---
+import ProjectCard from '../ui/ProjectCard.astro';
+import { professionalProjects } from '../../data/projects';
+---
+
+<section id="projects" class="w-full min-h-screen relative bg-[#fafafa] snap-start overflow-hidden flex items-center justify-center py-24 px-4 md:px-8">
+  <div class="absolute inset-0 flex justify-between px-[10%] pointer-events-none z-0">
+    <div class="w-[1px] h-full bg-gradient-to-b from-transparent via-[#e6394612] to-transparent opacity-50"></div>
+    <div class="w-[1px] h-full bg-gradient-to-b from-transparent via-[#e6394612] to-transparent opacity-80"></div>
+    <div class="w-[1px] h-full bg-gradient-to-b from-transparent via-[#e6394612] to-transparent opacity-100"></div>
+    <div class="w-[1px] h-full bg-gradient-to-b from-transparent via-[#e6394612] to-transparent opacity-80"></div>
+    <div class="w-[1px] h-full bg-gradient-to-b from-transparent via-[#e6394612] to-transparent opacity-50"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-6xl mx-auto pb-8">
+    <div class="mb-12 flex flex-col items-start md:items-start">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="w-10 h-[2px] bg-[#e63946]"></span>
+        <span class="text-xs font-semibold tracking-[0.3em] text-[#e63946]">EXPERIENCE</span>
+      </div>
+      <h2 class="text-4xl md:text-6xl font-light text-[#1a1a1a] leading-[1.1] mb-4">
+        Professional<br/>
+        <span class="font-bold text-[#e63946]">Projects</span>
+      </h2>
+      <p class="text-lg text-[#666] font-normal">Enterprise solutions and client work</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+      {professionalProjects.map((project, index) => (
+        <ProjectCard 
+          project={project} 
+          featured={index === 0}
+        />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,60 @@
+---
+interface Props {
+  label?: string;
+  subtitle?: string;
+  title: string;
+  highlight?: string;
+  variant?: 'dark' | 'light' | 'hero';
+  centered?: boolean;
+}
+
+const { 
+  label, 
+  subtitle,
+  title, 
+  highlight, 
+  variant = 'dark',
+  centered = true 
+} = Astro.props;
+
+const isDark = variant === 'dark';
+const isHero = variant === 'hero';
+const isLight = variant === 'light';
+
+const containerClasses = centered 
+  ? 'flex flex-col items-center text-center' 
+  : 'flex flex-col items-start';
+
+const labelColor = isDark || isHero ? 'text-[#e63946]' : 'text-[#e63946]';
+const titleColor = isDark ? 'text-white' : isHero ? 'text-gray-900' : 'text-[#1a1a1a]';
+const highlightColor = 'text-[#e63946]';
+---
+
+<div class={`${containerClasses} mb-12 md:mb-16 relative z-20`}>
+  {label && (
+    <div class="flex items-center gap-4 mb-4">
+      <span class="w-10 h-[2px] bg-[#e63946]"></span>
+      <span class={`text-xs font-semibold tracking-[0.3em] ${labelColor}`}>{label}</span>
+      {centered && <span class="w-10 h-[2px] bg-[#e63946]"></span>}
+    </div>
+  )}
+  
+  <h2 class={`text-4xl md:text-6xl font-black ${titleColor} tracking-wider leading-none mb-4`}>
+    {title}
+    {highlight && <span class={highlightColor}>{highlight}</span>}
+  </h2>
+  
+  {subtitle && (
+    <p class={`text-lg ${isDark ? 'text-gray-400' : 'text-[#666]'} font-normal`}>{subtitle}</p>
+  )}
+  
+  {centered && (
+    <div class="flex items-center justify-center gap-2 mt-2">
+      <span class="w-1.5 h-1.5 bg-[#e63946] rounded-full"></span>
+      <span class="w-[30px] h-[1px] bg-gradient-to-r from-[#e63946] to-transparent"></span>
+      <span class="w-2.5 h-2.5 bg-[#e63946] rotate-45"></span>
+      <span class="w-[30px] h-[1px] bg-gradient-to-l from-[#e63946] to-transparent"></span>
+      <span class="w-1.5 h-1.5 bg-[#e63946] rounded-full"></span>
+    </div>
+  )}
+</div>

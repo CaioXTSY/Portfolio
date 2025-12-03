@@ -1,0 +1,16 @@
+---
+interface Props {
+  variant?: 'dark' | 'light';
+  size?: number;
+}
+
+const { variant = 'dark', size = 80 } = Astro.props;
+
+const isDark = variant === 'dark';
+const lineColor = isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)';
+---
+
+<div 
+  class="absolute inset-0 pointer-events-none z-0 bg-center" 
+  style={`background-size: ${size}px ${size}px; background-image: linear-gradient(to right, ${lineColor} 1px, transparent 1px), linear-gradient(to bottom, ${lineColor} 1px, transparent 1px);`}
+></div>

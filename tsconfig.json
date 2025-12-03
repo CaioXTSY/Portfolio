@@ -1,6 +1,18 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "jsxImportSource": "astro"
+    "jsxImportSource": "astro",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@ui/*": ["src/components/ui/*"],
+      "@sections/*": ["src/components/sections/*"],
+      "@layout/*": ["src/components/layout/*"],
+      "@data/*": ["src/data/*"],
+      "@types/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"]
+    }
   }
 }

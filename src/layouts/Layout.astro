@@ -1,5 +1,6 @@
 ---
-import Header from '../components/Header.astro';
+import Header from '../components/layout/Header.astro';
+import { siteConfig } from '../data/navigation';
 
 interface Props {
 	title: string;
@@ -12,25 +13,27 @@ const { title } = Astro.props;
 <html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Portfolio de Caio Teixeira - Desenvolvedor" />
+		<meta name="description" content={siteConfig.description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 		<title>{title}</title>
 	</head>
 	<body>
 		<Header />
-		<div class="main-content">
+		<main class="main-content">
 			<slot />
-		</div>
+		</main>
 	</body>
 </html>
 
 <style is:global>
-	* {
+	*,
+	*::before,
+	*::after {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
@@ -46,11 +49,37 @@ const { title } = Astro.props;
 		background-color: #ffffff;
 		color: #1a1a1a;
 		overflow-x: hidden;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 
 	.main-content {
 		margin-left: 80px;
 		min-height: 100vh;
+	}
+
+	/* Selection styles */
+	::selection {
+		background-color: rgba(230, 57, 70, 0.2);
+		color: #1a1a1a;
+	}
+
+	/* Scrollbar styles */
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #0a0a0a;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #e63946;
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #c62b38;
 	}
 
 	@media (max-width: 768px) {

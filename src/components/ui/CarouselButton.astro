@@ -1,0 +1,21 @@
+---
+interface Props {
+  direction: 'prev' | 'next';
+  ariaLabel?: string;
+}
+
+const { direction, ariaLabel } = Astro.props;
+
+const isPrev = direction === 'prev';
+const pathD = isPrev ? 'M15 18l-6-6 6-6' : 'M9 18l6-6-6-6';
+---
+
+<button 
+  class={`carousel-btn ${direction} hidden md:flex w-14 h-14 border-2 border-[#e63946] bg-transparent text-[#e63946] cursor-pointer items-center justify-center shrink-0 relative overflow-hidden transition-all duration-300 group hover:shadow-[0_0_20px_rgba(230,57,70,0.3)]`}
+  aria-label={ariaLabel || (isPrev ? 'Previous' : 'Next')}
+>
+  <div class="absolute inset-0 bg-[#e63946] -translate-x-full transition-transform duration-300 ease-out group-hover:translate-x-0"></div>
+  <svg class="w-6 h-6 relative z-10 transition-colors duration-300 group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d={pathD}/>
+  </svg>
+</button>
