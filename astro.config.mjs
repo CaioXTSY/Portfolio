@@ -5,8 +5,11 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [tailwind()],
   vite: {
+    server: {
+      allowedHosts: true
+    },
     preview: {
-      allowedHosts: ['dev323ast5.caiots.dev']
+      allowedHosts: true
     }
   }
 });
