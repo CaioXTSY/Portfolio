@@ -2,15 +2,17 @@
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
-import StackSection from '../components/sections/StackSection.astro';
+import AboutSection from '../components/sections/AboutSection.astro';
 import ProfessionalProjects from '../components/sections/ProfessionalProjects.astro';
 import PersonalProjects from '../components/sections/PersonalProjects.astro';
+import ExperienceSection from '../components/sections/ExperienceSection.astro';
 import { siteConfig } from '../data/navigation';
 ---
 
 <Layout title={`${siteConfig.name} | Portfolio`}>
 	<HeroSection />
-	<StackSection />
+	<AboutSection />
 	<ProfessionalProjects />
 	<PersonalProjects />
+	<ExperienceSection />
 </Layout>
