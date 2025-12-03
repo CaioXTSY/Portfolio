@@ -1,214 +1,45 @@
-<header class="header">
-  <div class="logo">
-    <a href="/" class="logo-text">
+<header class="fixed left-0 top-0 h-screen w-[50px] flex flex-col justify-between items-center py-4 bg-white z-[1000] border-r border-gray-100 sm:w-20 sm:py-8 max-[480px]:hidden">
+  <div class="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180">
+    <a href="/" class="flex gap-2 text-[0.65rem] font-bold tracking-[0.15em] text-black no-underline sm:text-[0.85rem]">
       <span>CAIO</span>
-      <span class="highlight">TEIXEIRA</span>
+      <span class="font-normal">TEIXEIRA</span>
     </a>
   </div>
   
-  <nav class="nav">
-    <ul class="nav-list">
-      <li class="nav-item active">
-        <a href="#home">
-          <span class="nav-number">01</span>
-          <span class="nav-line"></span>
+  <nav class="flex-1 flex items-center">
+    <ul class="list-none p-0 m-0 flex flex-col gap-3 items-center sm:gap-6">
+      <li class="nav-item active group">
+        <a href="#home" class="flex flex-col items-center gap-2 no-underline text-gray-400 transition-colors duration-300 hover:text-black group-[.active]:text-black">
+          <span class="text-[0.6rem] font-semibold tracking-[0.05em] sm:text-xs">01</span>
+          <span class="nav-line w-0.5 h-3 bg-gray-200 transition-all duration-300 group-hover:bg-blue-600 group-[.active]:bg-blue-600 group-[.active]:h-5 sm:h-5 sm:group-[.active]:h-[30px]"></span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="#projects">
-          <span class="nav-number">02</span>
-          <span class="nav-line"></span>
+      <li class="nav-item group">
+        <a href="#projects" class="flex flex-col items-center gap-2 no-underline text-gray-400 transition-colors duration-300 hover:text-black group-[.active]:text-black">
+          <span class="text-[0.6rem] font-semibold tracking-[0.05em] sm:text-xs">02</span>
+          <span class="nav-line w-0.5 h-3 bg-gray-200 transition-all duration-300 group-hover:bg-blue-600 group-[.active]:bg-blue-600 group-[.active]:h-5 sm:h-5 sm:group-[.active]:h-[30px]"></span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="#stack">
-          <span class="nav-number">03</span>
-          <span class="nav-line"></span>
+      <li class="nav-item group">
+        <a href="#stack" class="flex flex-col items-center gap-2 no-underline text-gray-400 transition-colors duration-300 hover:text-black group-[.active]:text-black">
+          <span class="text-[0.6rem] font-semibold tracking-[0.05em] sm:text-xs">03</span>
+          <span class="nav-line w-0.5 h-3 bg-gray-200 transition-all duration-300 group-hover:bg-blue-600 group-[.active]:bg-blue-600 group-[.active]:h-5 sm:h-5 sm:group-[.active]:h-[30px]"></span>
         </a>
       </li>
-      <li class="nav-item">
-        <a href="#contact">
-          <span class="nav-number">04</span>
-          <span class="nav-line"></span>
+      <li class="nav-item group">
+        <a href="#contact" class="flex flex-col items-center gap-2 no-underline text-gray-400 transition-colors duration-300 hover:text-black group-[.active]:text-black">
+          <span class="text-[0.6rem] font-semibold tracking-[0.05em] sm:text-xs">04</span>
+          <span class="nav-line w-0.5 h-3 bg-gray-200 transition-all duration-300 group-hover:bg-blue-600 group-[.active]:bg-blue-600 group-[.active]:h-5 sm:h-5 sm:group-[.active]:h-[30px]"></span>
         </a>
       </li>
     </ul>
   </nav>
 
-  <div class="status">
-    <span class="status-dot"></span>
-    <span class="status-text">AVAILABLE</span>
+  <div class="flex flex-col items-center gap-2 [writing-mode:vertical-rl] [text-orientation:mixed] rotate-180">
+    <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse sm:w-2 sm:h-2"></span>
+    <span class="text-[0.55rem] font-semibold tracking-[0.15em] text-green-500 sm:text-[0.65rem]">AVAILABLE</span>
   </div>
 </header>
-
-<style>
-  .header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 0;
-    background: #fff;
-    z-index: 1000;
-    border-right: 1px solid #f0f0f0;
-  }
-
-  .logo {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-  }
-
-  .logo-text {
-    display: flex;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: #000;
-    text-decoration: none;
-  }
-
-  .logo-text .highlight {
-    color: #000;
-    font-weight: 400;
-  }
-
-  .nav {
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-  }
-
-  .nav-item a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: #999;
-    transition: color 0.3s ease;
-  }
-
-  .nav-item a:hover,
-  .nav-item.active a {
-    color: #000;
-  }
-
-  .nav-number {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-  }
-
-  .nav-line {
-    width: 2px;
-    height: 20px;
-    background: #e0e0e0;
-    transition: background 0.3s ease, height 0.3s ease;
-  }
-
-  .nav-item.active .nav-line {
-    background: #2563eb;
-    height: 30px;
-  }
-
-  .nav-item a:hover .nav-line {
-    background: #2563eb;
-  }
-
-  .status {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    background: #22c55e;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-
-  .status-text {
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    color: #22c55e;
-  }
-
-  /* Responsivo */
-  @media (max-width: 768px) {
-    .header {
-      width: 50px;
-      padding: 1rem 0;
-    }
-
-    .logo-text {
-      font-size: 0.65rem;
-    }
-
-    .nav-list {
-      gap: 0.75rem;
-    }
-
-    .nav-number {
-      font-size: 0.6rem;
-    }
-
-    .nav-line {
-      height: 12px;
-    }
-
-    .nav-item.active .nav-line {
-      height: 20px;
-    }
-
-    .status-text {
-      font-size: 0.55rem;
-    }
-
-    .status-dot {
-      width: 6px;
-      height: 6px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .header {
-      display: none;
-    }
-  }
-</style>
 
 <script>
   // Active navigation based on scroll
