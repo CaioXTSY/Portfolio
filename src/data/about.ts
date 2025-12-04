@@ -7,7 +7,13 @@ export interface AboutData {
     label: string;
     value: string;
   }>;
-  skills: string[];
+  skills: Array<{
+    category: string;
+    technologies: Array<{
+      name: string;
+      icon?: string;
+    }>;
+  }>;
   archives: Array<{
     title: string;
     content: string;
@@ -17,41 +23,49 @@ export interface AboutData {
 }
 
 export const aboutData: AboutData = {
-  name: 'Lorem Ipsum',
-  initials: 'png',
-  class: 'Dolor Sit Amet',
-  bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+  name: 'Caio Teixeira',
+  initials: 'CT',
+  class: 'Fullstack Developer',
+  bio: 'Fullstack developer with 2 years of experience in web projects. I work mainly with React, Next.js on the frontend and Nest.js, FastAPI on the backend. I like solving problems with clean and well-organized code.',
   
   basicInfo: [
-    { label: 'Location', value: 'Lorem' },
-    { label: 'Experience', value: 'Lorem' },
-    { label: 'Focus', value: 'Ipsum' },
-    { label: 'Status', value: 'Dolor' },
+    { label: 'Location', value: 'Brasil' },
+    { label: 'Experience', value: '2 years' },
+    { label: 'Focus', value: 'Web Development' },
+    { label: 'Status', value: 'Open to Opportunities' },
   ],
   
   skills: [
-    'Lorem',
-    'Ipsum',
-    'Dolor',
-    'Sit',
-    'Amet',
-    'Consectetur',
-    'Adipiscing',
-    'Elit',
-    'Sed',
-    'Tempor',
-    'Incididunt',
-    'Labore',
+    {
+      category: 'Frontend',
+      technologies: [
+        { name: 'React', icon: '⚛️' },
+        { name: 'Next.js', icon: '▲' },
+        { name: 'Astro', icon: '🚀' },
+        { name: 'TypeScript', icon: '📘' },
+        { name: 'Tailwind CSS', icon: '🎨' },
+      ],
+    },
+    {
+      category: 'Backend',
+      technologies: [
+        { name: 'Nest.js', icon: '🐈' },
+        { name: 'FastAPI', icon: '⚡' },
+        { name: 'Flask', icon: '🔗' },
+        { name: 'Prisma ORM', icon: '🔮' },
+        { name: 'SQL', icon: '💾' },
+      ],
+    },
   ],
   
   archives: [
     {
-      title: 'Lorem Ipsum',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      title: '🎨 Design',
+      content: 'Figma for prototyping and interface design.',
     },
     {
-      title: 'Dolor Sit',
-      content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      title: '🔄 DevOps',
+      content: 'GitHub Actions, CI/CD. Knowledge of deploy and process automation.',
     },
   ],
   
