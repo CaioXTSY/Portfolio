@@ -4,7 +4,7 @@ export const professionalProjects: Project[] = [
   {
     id: 'pro-1',
     title: 'Site Rápido Infoshop',
-    description: 'E-commerce platform with fast performance and modern interface.',
+    description: 'Institutional website for Rápido Infoshop with product showcase, responsive design, and optimized user experience. Features modern interface, fast loading times, and seamless navigation across all devices.',
     year: '2024',
     role: 'Fullstack Developer',
     techStack: ['Next.js', 'Nest.js', 'TypeScript', 'Prisma ORM', 'MySQL'],
@@ -13,7 +13,7 @@ export const professionalProjects: Project[] = [
   {
     id: 'pro-2',
     title: 'Site Brejo dos Bois',
-    description: 'Institutional website with modern design and optimized performance.',
+    description: 'Institutional website for Brejo dos Bois cachaçaria featuring product catalog, brand storytelling, and responsive design. Showcases their premium beverages with a focus on user engagement and smooth browsing experience across all platforms.',
     year: '2024',
     role: 'Fullstack Developer',
     techStack: ['Next.js', 'Nest.js', 'TypeScript', 'Prisma ORM'],
@@ -21,7 +21,7 @@ export const professionalProjects: Project[] = [
   {
     id: 'pro-3',
     title: 'Finasa',
-    description: 'AI-powered financial assistant using OpenAI API.',
+    description: 'Financial control platform integrated with AI capabilities for intelligent financial queries and analysis. Allows users to manage finances efficiently while leveraging AI to gain insights and make data-driven financial decisions.',
     year: '2024',
     role: 'Backend Developer',
     techStack: ['Flask', 'OpenAI API', 'Python'],
@@ -33,6 +33,14 @@ export const professionalProjects: Project[] = [
     year: '2024',
     role: 'Backend Developer',
     techStack: ['FastAPI', 'Python', 'Twilio', 'LangChain'],
+  },
+  {
+    id: 'pro-5',
+    title: 'Vendedor Online Oops Telecom',
+    description: 'WhatsApp-based sales platform for Oops Telecom plans with integrated payment processing. Features state machine management for order flow and Mercado Pago integration for secure transactions.',
+    year: '2024',
+    role: 'Backend Developer',
+    techStack: ['Python', 'PyTransitions', 'WhatsApp API', 'Mercado Pago'],
   },
 ];
 
