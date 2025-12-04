@@ -29,7 +29,7 @@ export const aboutData: AboutData = {
   bio: 'Fullstack developer with 2 years of experience in web projects. I work mainly with React, Next.js on the frontend and Nest.js, FastAPI on the backend. I like solving problems with clean and well-organized code.',
   
   basicInfo: [
-    { label: 'Location', value: 'Brasil' },
+    { label: 'Location', value: 'Brazil' },
     { label: 'Experience', value: '2 years' },
     { label: 'Focus', value: 'Web Development' },
     { label: 'Status', value: 'Open to Opportunities' },
