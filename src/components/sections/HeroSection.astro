@@ -34,5 +34,61 @@ import { siteConfig } from '../../data/navigation';
       <span class="w-[30px] h-px bg-red-500/60"></span>
     </div>
   </div>
+  
+  <div class="flex gap-3 relative z-10 md:hidden">
+    <button 
+      data-lang="pt" 
+      class="language-btn-mobile active px-3 py-1 text-sm font-semibold text-black transition-colors duration-300 border border-gray-300 rounded hover:border-[#e63946] hover:text-[#e63946]"
+      title="Português"
+    >
+      PT
+    </button>
+    <button 
+      data-lang="en" 
+      class="language-btn-mobile px-3 py-1 text-sm font-semibold text-gray-400 transition-colors duration-300 border border-gray-300 rounded hover:border-[#e63946] hover:text-[#e63946]"
+      title="English"
+    >
+      EN
+    </button>
+  </div>
+  
   <ScrollIndicator />
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const languageBtnsMobile = document.querySelectorAll('.language-btn-mobile');
+    const storedLang = localStorage.getItem('language') || 'en';
+    
+    languageBtnsMobile.forEach(btn => {
+      const lang = btn.getAttribute('data-lang');
+      if (lang === storedLang) {
+        btn.classList.add('active');
+        btn.classList.remove('text-gray-400', 'border-gray-300');
+        btn.classList.add('text-black', 'border-[#e63946]');
+      } else {
+        btn.classList.remove('active');
+        btn.classList.add('text-gray-400', 'border-gray-300');
+        btn.classList.remove('text-black', 'border-[#e63946]');
+      }
+      
+      btn.addEventListener('click', () => {
+        localStorage.setItem('language', lang || 'en');
+        window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
+        
+        languageBtnsMobile.forEach(b => {
+          const bLang = b.getAttribute('data-lang');
+          if (bLang === lang) {
+            b.classList.add('active');
+            b.classList.remove('text-gray-400', 'border-gray-300');
+            b.classList.add('text-black', 'border-[#e63946]');
+          } else {
+            b.classList.remove('active');
+            b.classList.add('text-gray-400', 'border-gray-300');
+            b.classList.remove('text-black', 'border-[#e63946]');
+          }
+        });
+      });
+    });
+  });
+</script>
