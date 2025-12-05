@@ -10,16 +10,16 @@ export interface ContactData {
 }
 
 export const contactData: ContactData = {
-  email: 'lorem@ipsum.com',
+  email: 'caioteixeiradss@gmail.com',
   socials: [
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/lorem',
+      url: 'https://linkedin.com/in/caiot.ds',
       icon: 'linkedin',
     },
     {
       name: 'GitHub',
-      url: 'https://github.com/lorem',
+      url: 'https://github.com/CaioXTSY',
       icon: 'github',
     },
   ],
