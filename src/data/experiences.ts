@@ -25,6 +25,6 @@ export const experiences: Experience[] = [
       'Collaborated with team on multiple production projects and improvements',
     ],
     technologies: ['Next.js', 'Nest.js', 'TypeScript', 'Prisma ORM', 'MySQL', 'React'],
-    logo: '/images/company-logo.png',
+    logo: '/rapido_logo.png',
   },
 ];
