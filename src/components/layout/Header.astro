@@ -46,14 +46,14 @@ import { navigationItems, siteConfig } from '../../data/navigation';
   document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header-wrapper');
     const navItems = document.querySelectorAll('.nav-item');
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section[id]');
 
     // Seções com fundo escuro
-    const darkSections = ['about', 'stack', 'contact'];
+    const darkSections = ['about', 'experience', 'contact'];
 
     const observerOptions = {
       root: null,
-      rootMargin: '-10% 0px -89% 0px',
+      rootMargin: '-30% 0px -70% 0px',
       threshold: 0
     };
 
@@ -64,9 +64,7 @@ import { navigationItems, siteConfig } from '../../data/navigation';
           const id = section.getAttribute('id');
           
           // Verifica se a seção é escura
-          const bgColor = getComputedStyle(section).backgroundColor;
           const isDarkSection = (id && darkSections.includes(id)) || 
-            bgColor === 'rgb(10, 10, 10)' || 
             section.classList.contains('bg-[#0a0a0a]');
           
           if (isDarkSection) {
@@ -79,16 +77,34 @@ import { navigationItems, siteConfig } from '../../data/navigation';
           if (id) {
             navItems.forEach((item) => {
               item.classList.remove('active');
-              const link = item.querySelector('a');
-              if (link?.getAttribute('href') === `#${id}`) {
-                item.classList.add('active');
-              }
             });
+            
+            const activeLink = document.querySelector(`.nav-item a[href="#${id}"]`);
+            if (activeLink) {
+              activeLink.closest('.nav-item')?.classList.add('active');
+            }
           }
         }
       });
     }, observerOptions);
 
     sections.forEach(section => observer.observe(section));
+
+    // Smooth scroll ao clicar nos links
+    navItems.forEach(item => {
+      const link = item.querySelector('a');
+      link?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.substring(1);
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
   });
 </script>
