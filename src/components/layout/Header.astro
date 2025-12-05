@@ -3,12 +3,9 @@ import { navigationItems, siteConfig } from '../../data/navigation';
 ---
 
 <header class="header-wrapper group/header fixed left-0 top-0 h-screen w-[50px] z-[1000] sm:w-20 max-[480px]:hidden">
-  <!-- Camada de fundo clara -->
   <div class="absolute inset-0 bg-white border-r border-gray-100 transition-opacity duration-500 ease-out group-[.dark]/header:opacity-0"></div>
-  <!-- Camada de fundo escura -->
   <div class="absolute inset-0 bg-[#0a0a0a] border-r border-[#1a1a1a] opacity-0 transition-opacity duration-500 ease-out group-[.dark]/header:opacity-100"></div>
   
-  <!-- Conteúdo -->
   <div class="relative h-full flex flex-col justify-between items-center py-4 sm:py-8">
     <div class="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180">
       <a href="/" class="flex gap-2 text-[0.65rem] font-bold tracking-[0.15em] text-black no-underline sm:text-[0.85rem] transition-colors duration-500 ease-out group-[.dark]/header:text-white">
@@ -48,7 +45,6 @@ import { navigationItems, siteConfig } from '../../data/navigation';
     const navItems = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('section[id]');
 
-    // Seções com fundo escuro
     const darkSections = ['about', 'experience', 'contact'];
 
     const observerOptions = {
@@ -62,8 +58,7 @@ import { navigationItems, siteConfig } from '../../data/navigation';
         if (entry.isIntersecting) {
           const section = entry.target as HTMLElement;
           const id = section.getAttribute('id');
-          
-          // Verifica se a seção é escura
+
           const isDarkSection = (id && darkSections.includes(id)) || 
             section.classList.contains('bg-[#0a0a0a]');
           
@@ -73,7 +68,6 @@ import { navigationItems, siteConfig } from '../../data/navigation';
             header?.classList.remove('dark');
           }
 
-          // Atualiza navegação ativa
           if (id) {
             navItems.forEach((item) => {
               item.classList.remove('active');
