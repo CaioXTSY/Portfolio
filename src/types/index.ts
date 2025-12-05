@@ -9,7 +9,7 @@ export interface Project {
   title: string;
   description: string;
   year: string;
-  category: string;
+  category?: string;
   role: string;
   techStack: string[];
   image?: string;
