@@ -13,17 +13,18 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: '01',
-    company: 'Lorem Ipsum Corp',
-    role: 'Lorem Ipsum',
-    period: '2023 - Present',
-    location: 'Lorem',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    company: 'Rápido Infoshop',
+    role: 'Fullstack Developer Intern',
+    period: '2024 - Present',
+    location: 'Brazil',
+    description: 'Contributing to the development and maintenance of institutional website and multiple web applications. Working on both frontend and backend solutions, implementing features, fixing bugs, and optimizing performance across the company tech stack.',
     achievements: [
-      'Lorem ipsum dolor sit amet consectetur',
-      'Ut enim ad minim veniam quis nostrud',
-      'Duis aute irure dolor in reprehenderit',
+      'Developed and maintained institutional website with responsive design and modern interface',
+      'Implemented fullstack features using Next.js, Nest.js and TypeScript',
+      'Integrated database solutions with Prisma ORM and MySQL',
+      'Collaborated with team on multiple production projects and improvements',
     ],
-    technologies: ['Lorem', 'ipsum',],
+    technologies: ['Next.js', 'Nest.js', 'TypeScript', 'Prisma ORM', 'MySQL', 'React'],
     logo: '/images/company-logo.png',
   },
 ];
