@@ -1,0 +1,23 @@
+---
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const getLanguage = () => {
+  if (lang) return lang;
+  return 'en';
+};
+---
+
+<script define:vars={{ defaultLang: getLanguage() }}>
+  import { getStoredLanguage } from '../../i18n/utils';
+  
+  window.currentLanguage = getStoredLanguage();
+  
+  window.addEventListener('languageChange', (event) => {
+    window.currentLanguage = event.detail;
+    document.documentElement.setAttribute('data-lang', event.detail);
+  });
+</script>

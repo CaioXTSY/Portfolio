@@ -14,7 +14,7 @@ import { aboutData } from '../../data/about';
     
     <div class="flex items-center gap-4 mb-16">
       <span class="w-12 h-[2px] bg-[#e63946]"></span>
-      <span class="text-xs font-semibold tracking-[0.3em] text-[#e63946] uppercase">About</span>
+      <span class="text-xs font-semibold tracking-[0.3em] text-[#e63946] uppercase lang-text" data-key="about.title">About</span>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
@@ -48,9 +48,10 @@ import { aboutData } from '../../data/about';
 
         <a 
           href={aboutData.resumeUrl || '#contact'} 
-          class="mt-8 w-full flex items-center justify-center gap-3 px-6 py-4 bg-[#e63946] text-white text-sm font-medium tracking-wide transition-all hover:bg-[#c62b38]"
+          class="mt-8 w-full flex items-center justify-center gap-3 px-6 py-4 bg-[#e63946] text-white text-sm font-medium tracking-wide transition-all hover:bg-[#c62b38] lang-text"
+          data-key="about.downloadResume"
         >
-          <span>Download Resume</span>
+          <span class="lang-text" data-key="about.downloadResume">Download Resume</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
           </svg>
@@ -68,7 +69,7 @@ import { aboutData } from '../../data/about';
         </p>
         
         <div class="mb-10">
-          <h3 class="text-xs font-semibold text-[#666] uppercase tracking-wider mb-6">Technologies</h3>
+          <h3 class="text-xs font-semibold text-[#666] uppercase tracking-wider mb-6 lang-text" data-key="about.technologies">Technologies</h3>
           <div class="space-y-6">
             {aboutData.skills.map((skillGroup) => (
               <div>

@@ -30,6 +30,56 @@ const { title } = Astro.props;
 	</body>
 </html>
 
+<script>
+  import { translations } from '../i18n/translations';
+  
+  function initializeTranslations() {
+    const lang = (localStorage.getItem('language') || 'en') as 'en' | 'pt';
+    const t = translations[lang];
+    
+    function updateTranslations() {
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (key) {
+          const keys = key.split('.');
+          let value: any = t;
+          for (const k of keys) {
+            value = value?.[k];
+          }
+          if (value) {
+            el.textContent = value;
+          }
+        }
+      });
+    }
+    
+    updateTranslations();
+    window.addEventListener('languageChange', () => {
+      const newLang = (localStorage.getItem('language') || 'en') as 'en' | 'pt';
+      const newT = translations[newLang];
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (key) {
+          const keys = key.split('.');
+          let value: any = newT;
+          for (const k of keys) {
+            value = value?.[k];
+          }
+          if (value) {
+            el.textContent = value;
+          }
+        }
+      });
+    });
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTranslations);
+  } else {
+    initializeTranslations();
+  }
+</script>
+
 <style is:global>
 	*,
 	*::before,
