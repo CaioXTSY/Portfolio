@@ -35,7 +35,7 @@ import { siteConfig } from '../../data/navigation';
     </div>
   </div>
   
-  <div class="flex gap-3 relative z-10 md:hidden">
+  <div class="flex gap-3 relative z-10 sm:-ml-20">
     <button 
       data-lang="pt" 
       class="language-btn-mobile active px-3 py-1 text-sm font-semibold text-black transition-colors duration-300 border border-gray-300 rounded hover:border-[#e63946] hover:text-[#e63946]"
@@ -58,7 +58,7 @@ import { siteConfig } from '../../data/navigation';
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const languageBtnsMobile = document.querySelectorAll('.language-btn-mobile');
-    const storedLang = localStorage.getItem('language') || 'en';
+    const storedLang = localStorage.getItem('language') || 'pt';
     
     languageBtnsMobile.forEach(btn => {
       const lang = btn.getAttribute('data-lang');

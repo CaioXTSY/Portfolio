@@ -36,23 +36,6 @@ import { navigationItems, siteConfig } from '../../data/navigation';
         <span class="text-[0.55rem] font-semibold tracking-[0.15em] text-green-500 sm:text-[0.65rem]">AVAILABLE</span>
       </div>
     )}
-
-    <div class="language-selector flex flex-col gap-1 items-center">
-      <button 
-        data-lang="pt" 
-        class="language-btn active text-[0.6rem] font-semibold text-black transition-colors duration-300 group-[.dark]/header:text-white hover:text-[#e63946] group-[.dark]/header:hover:text-[#e63946] sm:text-xs"
-        title="Português"
-      >
-        PT
-      </button>
-      <button 
-        data-lang="en" 
-        class="language-btn text-[0.6rem] font-semibold text-gray-400 transition-colors duration-300 group-[.dark]/header:text-gray-500 hover:text-[#e63946] group-[.dark]/header:hover:text-[#e63946] sm:text-xs"
-        title="English"
-      >
-        EN
-      </button>
-    </div>
   </div>
 </header>
 
@@ -118,9 +101,8 @@ import { navigationItems, siteConfig } from '../../data/navigation';
       });
     });
 
-    // Gerenciar seletor de idioma
     const languageBtns = document.querySelectorAll('.language-btn');
-    const storedLang = localStorage.getItem('language') || 'en';
+    const storedLang = localStorage.getItem('language') || 'pt';
     
     languageBtns.forEach(btn => {
       const lang = btn.getAttribute('data-lang');

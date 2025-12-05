@@ -33,51 +33,44 @@ const { title } = Astro.props;
 <script>
   import { translations } from '../i18n/translations';
   
-  function initializeTranslations() {
-    const lang = (localStorage.getItem('language') || 'en') as 'en' | 'pt';
+  function updateAllTranslations() {
+    const lang = (localStorage.getItem('language') || 'pt') as 'en' | 'pt';
     const t = translations[lang];
     
-    function updateTranslations() {
-      document.querySelectorAll('[data-key]').forEach(el => {
-        const key = el.getAttribute('data-key');
-        if (key) {
-          const keys = key.split('.');
-          let value: any = t;
-          for (const k of keys) {
-            value = value?.[k];
-          }
-          if (value) {
-            el.textContent = value;
-          }
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      if (key) {
+        const keys = key.split('.');
+        let value: any = t;
+        for (const k of keys) {
+          value = value?.[k];
         }
-      });
-    }
-    
-    updateTranslations();
-    window.addEventListener('languageChange', () => {
-      const newLang = (localStorage.getItem('language') || 'en') as 'en' | 'pt';
-      const newT = translations[newLang];
-      document.querySelectorAll('[data-key]').forEach(el => {
-        const key = el.getAttribute('data-key');
-        if (key) {
-          const keys = key.split('.');
-          let value: any = newT;
-          for (const k of keys) {
-            value = value?.[k];
-          }
-          if (value) {
-            el.textContent = value;
-          }
+        if (value && typeof value === 'string') {
+          el.textContent = value;
         }
-      });
+      }
     });
   }
   
+  function initializeTranslations() {
+    // Executar tradução inicial
+    updateAllTranslations();
+    
+    // Escutar mudanças de idioma
+    window.addEventListener('languageChange', () => {
+      updateAllTranslations();
+    });
+  }
+  
+  // Garantir que o DOM está pronto
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeTranslations);
   } else {
     initializeTranslations();
   }
+  
+  // Também executar após um pequeno delay para garantir que todos os elementos foram renderizados
+  setTimeout(updateAllTranslations, 100);
 </script>
 
 <style is:global>
