@@ -17,13 +17,13 @@ import { navigationItems, siteConfig } from '../../data/navigation';
     <nav class="flex-1 flex items-center">
       <ul class="list-none p-0 m-0 flex flex-col gap-3 items-center sm:gap-6">
         {navigationItems.map((item, index) => (
-          <li class={`nav-item group ${index === 0 ? 'active' : ''}`} data-nav-id={item.id}>
+          <li class={`nav-item ${index === 0 ? 'active' : ''}`} data-nav-id={item.id}>
             <a 
               href={item.href} 
-              class="flex flex-col items-center gap-2 no-underline text-gray-400 transition-colors duration-500 ease-out hover:text-black group-[.active]:text-black group-[.dark]/header:text-gray-500 group-[.dark]/header:hover:text-white group-[.active]:group-[.dark]/header:text-white"
+              class="nav-link flex flex-col items-center gap-2 no-underline transition-colors duration-300"
             >
-              <span class="text-[0.6rem] font-semibold tracking-[0.05em] sm:text-xs">{item.number}</span>
-              <span class="w-0.5 h-3 bg-gray-200 transition-all duration-300 group-hover:bg-[#e63946] group-[.active]:bg-[#e63946] group-[.active]:h-5 sm:h-5 sm:group-[.active]:h-[30px] group-[.dark]/header:bg-gray-700"></span>
+              <span class="nav-number text-[0.6rem] font-semibold tracking-[0.05em] sm:text-xs">{item.number}</span>
+              <span class="nav-bar w-0.5 h-3 transition-all duration-300 sm:h-5"></span>
             </a>
           </li>
         ))}
@@ -39,17 +39,64 @@ import { navigationItems, siteConfig } from '../../data/navigation';
   </div>
 </header>
 
+<style>
+  .nav-link {
+    color: #9ca3af;
+  }
+  .nav-link:hover {
+    color: #e63946;
+  }
+  .nav-bar {
+    background-color: #e5e7eb;
+  }
+  .nav-link:hover .nav-bar {
+    background-color: #e63946;
+  }
+  
+  .nav-item.active .nav-link {
+    color: #e63946;
+  }
+  .nav-item.active .nav-bar {
+    background-color: #e63946;
+    height: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .nav-item.active .nav-bar {
+      height: 30px;
+    }
+  }
+  
+  .header-wrapper.dark .nav-link {
+    color: #6b7280;
+  }
+  .header-wrapper.dark .nav-link:hover {
+    color: #e63946;
+  }
+  .header-wrapper.dark .nav-bar {
+    background-color: #374151;
+  }
+  .header-wrapper.dark .nav-link:hover .nav-bar {
+    background-color: #e63946;
+  }
+  .header-wrapper.dark .nav-item.active .nav-link {
+    color: #e63946;
+  }
+  .header-wrapper.dark .nav-item.active .nav-bar {
+    background-color: #e63946;
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header-wrapper');
     const navItems = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('section[id]');
 
-    const darkSections = ['about', 'experience', 'contact'];
+    const darkSections = ['about', 'personal', 'contact'];
 
     const observerOptions = {
       root: null,
-      rootMargin: '-30% 0px -70% 0px',
+      rootMargin: '-40% 0px -60% 0px',
       threshold: 0
     };
 
@@ -73,9 +120,9 @@ import { navigationItems, siteConfig } from '../../data/navigation';
               item.classList.remove('active');
             });
             
-            const activeLink = document.querySelector(`.nav-item a[href="#${id}"]`);
-            if (activeLink) {
-              activeLink.closest('.nav-item')?.classList.add('active');
+            const activeNavItem = document.querySelector(`.nav-item[data-nav-id="nav-${id}"]`);
+            if (activeNavItem) {
+              activeNavItem.classList.add('active');
             }
           }
         }
@@ -98,41 +145,6 @@ import { navigationItems, siteConfig } from '../../data/navigation';
             targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }
-      });
-    });
-
-    const languageBtns = document.querySelectorAll('.language-btn');
-    const storedLang = localStorage.getItem('language') || 'pt';
-    
-    languageBtns.forEach(btn => {
-      const lang = btn.getAttribute('data-lang');
-      if (lang === storedLang) {
-        btn.classList.add('active');
-        btn.classList.remove('text-gray-400', 'group-[.dark]/header:text-gray-500');
-        btn.classList.add('text-black', 'group-[.dark]/header:text-white');
-      } else {
-        btn.classList.remove('active');
-        btn.classList.add('text-gray-400', 'group-[.dark]/header:text-gray-500');
-        btn.classList.remove('text-black', 'group-[.dark]/header:text-white');
-      }
-      
-      btn.addEventListener('click', () => {
-        localStorage.setItem('language', lang || 'en');
-        window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
-        
-        // Atualizar estilos
-        languageBtns.forEach(b => {
-          const bLang = b.getAttribute('data-lang');
-          if (bLang === lang) {
-            b.classList.add('active');
-            b.classList.remove('text-gray-400', 'group-[.dark]/header:text-gray-500');
-            b.classList.add('text-black', 'group-[.dark]/header:text-white');
-          } else {
-            b.classList.remove('active');
-            b.classList.add('text-gray-400', 'group-[.dark]/header:text-gray-500');
-            b.classList.remove('text-black', 'group-[.dark]/header:text-white');
-          }
-        });
       });
     });
   });
