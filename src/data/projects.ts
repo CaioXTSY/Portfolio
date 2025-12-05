@@ -36,7 +36,7 @@ export const professionalProjects: Project[] = [
   },
   {
     id: 'pro-5',
-    title: 'Vendedor Online Oops Telecom',
+    title: 'Seller Chatbot',
     description: 'WhatsApp-based sales platform for Oops Telecom plans with integrated payment processing. Features state machine management for order flow and Mercado Pago integration for secure transactions.',
     year: '2024',
     role: 'Backend Developer',
