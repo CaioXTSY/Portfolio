@@ -1,50 +1,54 @@
 ---
 import { contactData } from '../../data/contact';
+import { translations } from '../../i18n/translations';
+
+const getLanguage = () => {
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('language') || 'en';
+  }
+  return 'en';
+};
+
+const lang = 'en'; 
+const t = translations[lang as 'en' | 'pt'];
 ---
 
-<section id="contact" class="w-full min-h-screen relative bg-[#0a0a0a] snap-start overflow-hidden flex flex-col">
-  <!-- Grid Background -->
+<section id="contact" class="w-full min-h-screen relative bg-[#0a0a0a] snap-start overflow-hidden flex flex-col" data-section="contact">
   <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(230,57,70,0.03)_1px,transparent_1px),linear-gradient(0deg,rgba(230,57,70,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none z-0"></div>
 
-  <!-- Main Content -->
   <div class="flex-1 flex items-center justify-center py-20 px-4 md:px-8">
     <div class="relative z-10 w-full max-w-3xl mx-auto text-center">
-      
-      <!-- Label -->
+
       <div class="flex items-center justify-center gap-3 mb-8">
         <span class="w-8 h-[1px] bg-[#e63946]"></span>
-        <span class="text-xs font-semibold tracking-[0.3em] text-[#e63946]">Lorem</span>
+        <span class="text-xs font-semibold tracking-[0.3em] text-[#e63946] lang-text" data-key="contact.title">CONTACT</span>
         <span class="w-8 h-[1px] bg-[#e63946]"></span>
       </div>
 
-      <!-- Big Heading -->
       <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-       Lorem<br/>
-        <span class="text-[#e63946]">Lorem.</span>
+       <span class="lang-text" data-key="contact.subtitle-part1">Get In</span><br/>
+        <span class="text-[#e63946] lang-text" data-key="contact.subtitle-part2">Touch.</span>
       </h2>
 
-      <!-- Subtitle -->
-      <p class="text-base md:text-lg text-[#666] mb-12 max-w-lg mx-auto">
-       Lorem Ipsum
+      <p class="text-base md:text-lg text-[#666] mb-12 max-w-lg mx-auto lang-text" data-key="contact.description">
+       Have a project in mind? Let's talk. I'm always interested in hearing about new opportunities and challenges.
       </p>
 
-      <!-- Email CTA -->
       <a 
         href={`mailto:${contactData.email}`}
-        class="group inline-flex items-center gap-4 px-8 py-5 bg-[#e63946] text-white text-lg font-semibold transition-all duration-300 hover:bg-[#c62b38] hover:gap-6"
+        class="group inline-flex items-center gap-4 px-8 py-5 bg-[#e63946] text-white text-lg font-semibold transition-all duration-300 hover:bg-[#c62b38] hover:gap-6 lang-text"
+        data-key="contact.sayHello"
       >
-        <span>Say Hello</span>
+        <span class="lang-text" data-key="contact.sayHello">Say Hello</span>
         <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
         </svg>
       </a>
 
-      <!-- Email Text -->
       <p class="mt-6 text-sm text-[#555]">
-        or email me at <a href={`mailto:${contactData.email}`} class="text-[#888] hover:text-[#e63946] transition-colors underline underline-offset-4">{contactData.email}</a>
+        <span class="lang-text" data-key="contact.orEmail">or email me at</span> <a href={`mailto:${contactData.email}`} class="text-[#888] hover:text-[#e63946] transition-colors underline underline-offset-4">{contactData.email}</a>
       </p>
 
-      <!-- Social Links -->
       <div class="flex items-center justify-center gap-6 mt-16">
         {contactData.socials.map((social) => (
           <a 
@@ -71,26 +75,23 @@ import { contactData } from '../../data/contact';
     </div>
   </div>
 
-  <!-- Footer -->
   <footer class="relative z-10 border-t border-[#1a1a1a] py-8 px-4 md:px-8">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      
-      <!-- Left: Copyright -->
+
       <p class="text-sm text-[#555] md:w-1/3 text-center md:text-left">
-        © {new Date().getFullYear()} <span class="text-[#888]">All rights reserved.</span>
+        © {new Date().getFullYear()} <span class="text-[#888] lang-text" data-key="contact.allRightsReserved">All rights reserved.</span>
       </p>
 
-      <!-- Center: Made with -->
       <p class="text-xs text-[#444] md:w-1/3 text-center">
-        Built with <span class="text-[#e63946]">Astro</span>
+        <span class="lang-text" data-key="contact.builtWith">Built with</span> <span class="text-[#e63946]">Astro</span>
       </p>
 
-      <!-- Right: Back to top -->
       <a 
-        href="#"
-        class="flex items-center justify-center md:justify-end gap-2 text-sm text-[#555] hover:text-[#e63946] transition-colors md:w-1/3"
+        href="#home"
+        class="flex items-center justify-center md:justify-end gap-2 text-sm text-[#555] hover:text-[#e63946] transition-colors md:w-1/3 lang-text"
+        data-key="contact.backToTop"
       >
-        <span>Back to top</span>
+        <span class="lang-text" data-key="contact.backToTop">Back to top</span>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
         </svg>

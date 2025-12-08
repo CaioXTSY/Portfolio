@@ -7,7 +7,7 @@ import { personalProjects } from '../../data/projects';
 const totalIndicators = Math.ceil(personalProjects.length / 1) || 2;
 ---
 
-<section class="relative w-full min-h-screen py-24 px-4 md:px-16 bg-[#0a0a0a] flex flex-col items-center justify-center overflow-hidden snap-start projects-section">
+<section id="personal" class="relative w-full min-h-screen py-24 px-4 md:px-16 bg-[#0a0a0a] flex flex-col items-center justify-center overflow-hidden snap-start projects-section">
   <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:80px_80px] pointer-events-none z-0"></div>
 
   <div class="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_800px_400px_at_20%_50%,rgba(230,57,70,0.06)_0%,transparent_70%),radial-gradient(ellipse_600px_300px_at_80%_30%,rgba(230,57,70,0.03)_0%,transparent_70%)]">
@@ -20,7 +20,7 @@ const totalIndicators = Math.ceil(personalProjects.length / 1) || 2;
   <div class="flex flex-col items-center gap-4 mb-16 md:ml-[-80px] relative z-20">
     <h2 class="text-xl md:text-3xl font-semibold text-white tracking-[0.15em] md:tracking-[0.3em] relative [text-shadow:0_0_30px_rgba(230,57,70,0.2)] 
         before:content-['//'] before:hidden md:before:block before:absolute before:-left-10 before:text-[#e63946] before:font-normal before:opacity-50
-        after:content-[''] after:hidden md:after:block after:absolute after:-bottom-2.5 after:left-1/2 after:-translate-x-1/2 after:w-[60%] after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-[#e6394650] after:to-transparent">
+        after:content-[''] after:hidden md:after:block after:absolute after:-bottom-2.5 after:left-1/2 after:-translate-x-1/2 after:w-[60%] after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-[#e6394650] after:to-transparent lang-text" data-key="projects.personal-section">
       PERSONAL PROJECTS
     </h2>
     <div class="flex items-center gap-2">

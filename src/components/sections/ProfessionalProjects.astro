@@ -3,8 +3,7 @@ import ProjectCard from '../ui/ProjectCard.astro';
 import { professionalProjects } from '../../data/projects';
 ---
 
-<section id="projects" class="w-full min-h-screen relative bg-[#fafafa] snap-start overflow-hidden flex items-center justify-center py-24 px-4 md:px-8">
-  <!-- Grid Background -->
+<section id="professional" class="w-full min-h-screen relative bg-[#fafafa] snap-start overflow-hidden flex items-center justify-center py-24 px-4 md:px-8">
   <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(0deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none z-0"></div>
 
   <div class="absolute inset-0 flex justify-between px-[10%] pointer-events-none z-0">
@@ -22,10 +21,10 @@ import { professionalProjects } from '../../data/projects';
         <span class="text-xs font-semibold tracking-[0.3em] text-[#e63946]">EXPERIENCE</span>
       </div>
       <h2 class="text-4xl md:text-6xl font-light text-[#1a1a1a] leading-[1.1] mb-4">
-        Professional<br/>
-        <span class="font-bold text-[#e63946]">Projects</span>
+        <span class="lang-text" data-key="projects.professional">Professional</span><br/>
+        <span class="font-bold text-[#e63946] lang-text" data-key="projects.professional-highlight">Projects</span>
       </h2>
-      <p class="text-lg text-[#666] font-normal">Enterprise solutions and client work</p>
+      <p class="text-lg text-[#666] font-normal lang-text" data-key="projects.professional-description">Enterprise solutions and client work</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">

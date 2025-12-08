@@ -3,12 +3,9 @@ import { navigationItems, siteConfig } from '../../data/navigation';
 ---
 
 <header class="header-wrapper group/header fixed left-0 top-0 h-screen w-[50px] z-[1000] sm:w-20 max-[480px]:hidden">
-  <!-- Camada de fundo clara -->
   <div class="absolute inset-0 bg-white border-r border-gray-100 transition-opacity duration-500 ease-out group-[.dark]/header:opacity-0"></div>
-  <!-- Camada de fundo escura -->
   <div class="absolute inset-0 bg-[#0a0a0a] border-r border-[#1a1a1a] opacity-0 transition-opacity duration-500 ease-out group-[.dark]/header:opacity-100"></div>
   
-  <!-- Conteúdo -->
   <div class="relative h-full flex flex-col justify-between items-center py-4 sm:py-8">
     <div class="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180">
       <a href="/" class="flex gap-2 text-[0.65rem] font-bold tracking-[0.15em] text-black no-underline sm:text-[0.85rem] transition-colors duration-500 ease-out group-[.dark]/header:text-white">
@@ -20,13 +17,13 @@ import { navigationItems, siteConfig } from '../../data/navigation';
     <nav class="flex-1 flex items-center">
       <ul class="list-none p-0 m-0 flex flex-col gap-3 items-center sm:gap-6">
         {navigationItems.map((item, index) => (
-          <li class={`nav-item group ${index === 0 ? 'active' : ''}`} data-nav-id={item.id}>
+          <li class={`nav-item ${index === 0 ? 'active' : ''}`} data-nav-id={item.id}>
             <a 
               href={item.href} 
-              class="flex flex-col items-center gap-2 no-underline text-gray-400 transition-colors duration-500 ease-out hover:text-black group-[.active]:text-black group-[.dark]/header:text-gray-500 group-[.dark]/header:hover:text-white group-[.active]:group-[.dark]/header:text-white"
+              class="nav-link flex flex-col items-center gap-2 no-underline transition-colors duration-300"
             >
-              <span class="text-[0.6rem] font-semibold tracking-[0.05em] sm:text-xs">{item.number}</span>
-              <span class="w-0.5 h-3 bg-gray-200 transition-all duration-300 group-hover:bg-[#e63946] group-[.active]:bg-[#e63946] group-[.active]:h-5 sm:h-5 sm:group-[.active]:h-[30px] group-[.dark]/header:bg-gray-700"></span>
+              <span class="nav-number text-[0.6rem] font-semibold tracking-[0.05em] sm:text-xs">{item.number}</span>
+              <span class="nav-bar w-0.5 h-3 transition-all duration-300 sm:h-5"></span>
             </a>
           </li>
         ))}
@@ -42,18 +39,64 @@ import { navigationItems, siteConfig } from '../../data/navigation';
   </div>
 </header>
 
+<style>
+  .nav-link {
+    color: #9ca3af;
+  }
+  .nav-link:hover {
+    color: #e63946;
+  }
+  .nav-bar {
+    background-color: #e5e7eb;
+  }
+  .nav-link:hover .nav-bar {
+    background-color: #e63946;
+  }
+  
+  .nav-item.active .nav-link {
+    color: #e63946;
+  }
+  .nav-item.active .nav-bar {
+    background-color: #e63946;
+    height: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .nav-item.active .nav-bar {
+      height: 30px;
+    }
+  }
+  
+  .header-wrapper.dark .nav-link {
+    color: #6b7280;
+  }
+  .header-wrapper.dark .nav-link:hover {
+    color: #e63946;
+  }
+  .header-wrapper.dark .nav-bar {
+    background-color: #374151;
+  }
+  .header-wrapper.dark .nav-link:hover .nav-bar {
+    background-color: #e63946;
+  }
+  .header-wrapper.dark .nav-item.active .nav-link {
+    color: #e63946;
+  }
+  .header-wrapper.dark .nav-item.active .nav-bar {
+    background-color: #e63946;
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header-wrapper');
     const navItems = document.querySelectorAll('.nav-item');
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section[id]');
 
-    // Seções com fundo escuro
-    const darkSections = ['about', 'stack', 'contact'];
+    const darkSections = ['about', 'personal', 'contact'];
 
     const observerOptions = {
       root: null,
-      rootMargin: '-10% 0px -89% 0px',
+      rootMargin: '-40% 0px -60% 0px',
       threshold: 0
     };
 
@@ -62,11 +105,8 @@ import { navigationItems, siteConfig } from '../../data/navigation';
         if (entry.isIntersecting) {
           const section = entry.target as HTMLElement;
           const id = section.getAttribute('id');
-          
-          // Verifica se a seção é escura
-          const bgColor = getComputedStyle(section).backgroundColor;
+
           const isDarkSection = (id && darkSections.includes(id)) || 
-            bgColor === 'rgb(10, 10, 10)' || 
             section.classList.contains('bg-[#0a0a0a]');
           
           if (isDarkSection) {
@@ -75,20 +115,37 @@ import { navigationItems, siteConfig } from '../../data/navigation';
             header?.classList.remove('dark');
           }
 
-          // Atualiza navegação ativa
           if (id) {
             navItems.forEach((item) => {
               item.classList.remove('active');
-              const link = item.querySelector('a');
-              if (link?.getAttribute('href') === `#${id}`) {
-                item.classList.add('active');
-              }
             });
+            
+            const activeNavItem = document.querySelector(`.nav-item[data-nav-id="nav-${id}"]`);
+            if (activeNavItem) {
+              activeNavItem.classList.add('active');
+            }
           }
         }
       });
     }, observerOptions);
 
     sections.forEach(section => observer.observe(section));
+
+    // Smooth scroll ao clicar nos links
+    navItems.forEach(item => {
+      const link = item.querySelector('a');
+      link?.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const targetId = href.substring(1);
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
   });
 </script>

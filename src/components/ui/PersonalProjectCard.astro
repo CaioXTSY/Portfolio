@@ -30,11 +30,11 @@ const backgroundStyle = project.image
       <span class="w-3 h-3 rounded-full bg-[#333] shrink-0 group-hover:bg-[#e63946] group-hover:shadow-[0_0_12px_rgba(230,57,70,0.5)] transition-colors"></span>
     </div>
     
-    <h4 class="text-xl md:text-2xl font-bold text-white font-inter leading-tight tracking-tight group-hover:text-[#e63946] transition-colors">
+    <h4 class="text-xl md:text-2xl font-bold text-white font-inter leading-tight tracking-tight group-hover:text-[#e63946] transition-colors" data-key={`projects.${project.id}`}>
       {project.title}
     </h4>
     
-    <p class="text-sm text-gray-400 leading-relaxed font-inter font-normal">
+    <p class="text-sm text-gray-400 leading-relaxed font-inter font-normal" data-key={`projects.${project.id}Desc`}>
       {project.description}
     </p>
     
