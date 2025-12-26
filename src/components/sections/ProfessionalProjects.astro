@@ -28,10 +28,10 @@ import { professionalProjects } from '../../data/projects';
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
-      {professionalProjects.map((project, index) => (
+      {professionalProjects.map((project) => (
         <ProjectCard 
           project={project} 
-          featured={index === 0}
+          featured={false}
         />
       ))}
     </div>

@@ -13,6 +13,7 @@ export interface Project {
   role: string;
   techStack: string[];
   image?: string;
+  mediaType?: 'image' | 'video';
   link?: string;
   featured?: boolean;
 }
