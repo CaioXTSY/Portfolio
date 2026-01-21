@@ -76,6 +76,8 @@ export const personalProjects: Project[] = [
     year: '2025',
     role: 'Backend Developer',
     techStack: ['Nest.js', 'Prisma ORM', 'Spotify API', 'Passport'],
+    image: '/vorplay.webp',
+    mediaType: 'image',
   },
   {
     id: 'personal-3',
