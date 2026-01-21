@@ -63,8 +63,8 @@ export const professionalProjects: Project[] = [
 export const personalProjects: Project[] = [
   {
     id: 'personal-1',
-    title: 'This Portfolio',
-    description: 'Personal portfolio website built with modern web technologies. Showcases projects, experience, and skills with a focus on responsive design and user experience.',
+    title: 'Portfolio',
+    description: 'Personal website built to showcase projects and professional experience.',
     year: '2025',
     role: 'Developer',
     techStack: ['Astro', 'TypeScript', 'Tailwind CSS'],
@@ -73,8 +73,8 @@ export const personalProjects: Project[] = [
   },
   {
     id: 'personal-2',
-    title: 'Vorplay API',
-    description: 'Backend API with Spotify integration for music-related operations. Features authentication with Passport and data persistence using Prisma ORM.',
+    title: 'Vorplay',
+    description: 'Backend API integrated with Spotify for music data management.',
     year: '2025',
     role: 'Backend Developer',
     techStack: ['Nest.js', 'Prisma ORM', 'Spotify API', 'Passport'],
@@ -84,7 +84,7 @@ export const personalProjects: Project[] = [
   {
     id: 'personal-3',
     title: 'Vorp',
-    description: 'Markdown note creation and editing platform. Allows users to create, organize, and manage notes with markdown support.',
+    description: 'Web application for creating and organizing Markdown notes with AI capabilities.',
     year: '2024',
     role: 'Full Developer',
     techStack: ['Django', 'Python'],
@@ -93,8 +93,8 @@ export const personalProjects: Project[] = [
   },
   {
     id: 'personal-4',
-    title: 'MonaAI API',
-    description: 'Document reading and analysis API with AI-powered conversation capabilities. Upload documents and interact with them using natural language queries powered by AI.',
+    title: 'MonaAI',
+    description: 'AI system for document reading and analysis via chat.',
     year: '2024',
     role: 'Backend Developer',
     techStack: ['Python', 'AI/ML', 'Document Processing'],
