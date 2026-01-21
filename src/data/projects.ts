@@ -24,7 +24,7 @@ export const professionalProjects: Project[] = [
   },
   {
     id: 'pro-3',
-    title: 'Site Rápido CNAE',
+    title: 'Rápido CNAE',
     description: 'Web platform for CNAE consultation and management powered by AI. Integrates intelligent search and categorization features to help businesses identify their correct activity codes efficiently.',
     year: '2025',
     role: 'Fullstack Developer',
