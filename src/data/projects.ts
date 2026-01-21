@@ -68,6 +68,8 @@ export const personalProjects: Project[] = [
     year: '2025',
     role: 'Developer',
     techStack: ['Astro', 'TypeScript', 'Tailwind CSS'],
+    image: '/portfolio.webp',
+    mediaType: 'image',
   },
   {
     id: 'personal-2',
