@@ -86,6 +86,8 @@ export const personalProjects: Project[] = [
     year: '2024',
     role: 'Full Developer',
     techStack: ['Django', 'Python'],
+    image: '/vorp.webp',
+    mediaType: 'image',
   },
   {
     id: 'personal-4',
