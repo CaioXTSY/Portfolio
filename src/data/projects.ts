@@ -96,5 +96,7 @@ export const personalProjects: Project[] = [
     year: '2024',
     role: 'Backend Developer',
     techStack: ['Python', 'AI/ML', 'Document Processing'],
+    image: '/monai.webp',
+    mediaType: 'image',
   },
 ];
