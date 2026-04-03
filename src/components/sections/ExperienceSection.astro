@@ -1,6 +1,7 @@
 ---
 import { experiences } from '../../data/experiences';
 import CornerDecorations from '../ui/CornerDecorations.astro';
+import SectionTitle from '../ui/SectionTitle.astro';
 ---
 
 <section id="experience" class="w-full min-h-screen relative bg-[#fafafa] snap-start overflow-hidden flex items-center justify-center py-24 px-4 md:px-8">
@@ -18,15 +19,13 @@ import CornerDecorations from '../ui/CornerDecorations.astro';
 
   <div class="relative z-10 w-full max-w-6xl mx-auto">
     
-    <div class="mb-12 flex flex-col items-start">
-      <div class="flex items-center gap-4 mb-4">
-        <span class="w-10 h-[2px] bg-[#e63946]"></span>
-        <span class="text-xs font-semibold tracking-[0.3em] text-[#e63946]">CAREER</span>
-      </div>
-      <h2 class="text-4xl md:text-6xl font-light text-[#1a1a1a] leading-[1.1] mb-4">
-        <span class="font-bold text-[#e63946] lang-text" data-key="experience.title">Experience</span>
-      </h2>
-    </div>
+    <SectionTitle
+      label="CAREER"
+      highlight="Experience"
+      highlightKey="experience.title"
+      variant="light"
+      centered={false}
+    />
 
     <div class="grid grid-cols-1 gap-6">
       {experiences.map((exp) => (

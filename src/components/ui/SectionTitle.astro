@@ -1,31 +1,39 @@
 ---
 interface Props {
   label?: string;
-  subtitle?: string;
-  title: string;
+  labelKey?: string;
+  title?: string;
+  titleKey?: string;
   highlight?: string;
+  highlightKey?: string;
+  subtitle?: string;
+  subtitleKey?: string;
   variant?: 'dark' | 'light' | 'hero';
   centered?: boolean;
+  titleBreak?: boolean;
 }
 
-const { 
-  label, 
+const {
+  label,
+  labelKey,
+  title = '',
+  titleKey,
+  highlight,
+  highlightKey,
   subtitle,
-  title, 
-  highlight, 
+  subtitleKey,
   variant = 'dark',
-  centered = true 
+  centered = true,
+  titleBreak = false,
 } = Astro.props;
 
 const isDark = variant === 'dark';
 const isHero = variant === 'hero';
-const isLight = variant === 'light';
 
-const containerClasses = centered 
-  ? 'flex flex-col items-center text-center' 
+const containerClasses = centered
+  ? 'flex flex-col items-center text-center'
   : 'flex flex-col items-start';
 
-const labelColor = isDark || isHero ? 'text-[#e63946]' : 'text-[#e63946]';
 const titleColor = isDark ? 'text-white' : isHero ? 'text-gray-900' : 'text-[#1a1a1a]';
 const highlightColor = 'text-[#e63946]';
 ---
@@ -34,20 +42,35 @@ const highlightColor = 'text-[#e63946]';
   {label && (
     <div class="flex items-center gap-4 mb-4">
       <span class="w-10 h-[2px] bg-[#e63946]"></span>
-      <span class={`text-xs font-semibold tracking-[0.3em] ${labelColor}`}>{label}</span>
+      <span
+        class={`text-xs font-semibold tracking-[0.3em] text-[#e63946]${labelKey ? ' lang-text' : ''}`}
+        data-key={labelKey}
+      >{label}</span>
       {centered && <span class="w-10 h-[2px] bg-[#e63946]"></span>}
     </div>
   )}
-  
+
   <h2 class={`text-4xl md:text-6xl font-black ${titleColor} tracking-wider leading-none mb-4`}>
-    {title}
-    {highlight && <span class={highlightColor}>{highlight}</span>}
+    {title && (
+      titleKey
+        ? <span class="lang-text" data-key={titleKey}>{title}</span>
+        : title
+    )}
+    {titleBreak && title && highlight && <br/>}
+    {highlight && (
+      highlightKey
+        ? <span class={`${highlightColor} lang-text`} data-key={highlightKey}>{highlight}</span>
+        : <span class={highlightColor}>{highlight}</span>
+    )}
   </h2>
-  
+
   {subtitle && (
-    <p class={`text-lg ${isDark ? 'text-gray-400' : 'text-[#666]'} font-normal`}>{subtitle}</p>
+    <p
+      class={`text-lg ${isDark ? 'text-gray-400' : 'text-[#666]'} font-normal${subtitleKey ? ' lang-text' : ''}`}
+      data-key={subtitleKey}
+    >{subtitle}</p>
   )}
-  
+
   {centered && (
     <div class="flex items-center justify-center gap-2 mt-2">
       <span class="w-1.5 h-1.5 bg-[#e63946] rounded-full"></span>
