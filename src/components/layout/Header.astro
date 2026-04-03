@@ -5,7 +5,7 @@ import { navigationItems, siteConfig } from '../../data/navigation';
 <header class="header-wrapper group/header fixed left-0 top-0 h-screen w-[50px] z-[1000] sm:w-20 max-[480px]:hidden">
   <div class="absolute inset-0 bg-white border-r border-gray-100 transition-opacity duration-500 ease-out group-[.dark]/header:opacity-0"></div>
   <div class="absolute inset-0 bg-[#0a0a0a] border-r border-[#1a1a1a] opacity-0 transition-opacity duration-500 ease-out group-[.dark]/header:opacity-100"></div>
-  
+
   <div class="relative h-full flex flex-col justify-between items-center py-4 sm:py-8">
     <div class="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180">
       <a href="/" class="flex gap-2 text-[0.65rem] font-bold tracking-[0.15em] text-black no-underline sm:text-[0.85rem] transition-colors duration-500 ease-out group-[.dark]/header:text-white">
@@ -13,13 +13,13 @@ import { navigationItems, siteConfig } from '../../data/navigation';
         <span class="font-normal">{siteConfig.lastName}</span>
       </a>
     </div>
-    
+
     <nav class="flex-1 flex items-center">
       <ul class="list-none p-0 m-0 flex flex-col gap-3 items-center sm:gap-6">
         {navigationItems.map((item, index) => (
           <li class={`nav-item ${index === 0 ? 'active' : ''}`} data-nav-id={item.id}>
-            <a 
-              href={item.href} 
+            <a
+              href={item.href}
               class="nav-link flex flex-col items-center gap-2 no-underline transition-colors duration-300"
             >
               <span class="nav-number text-[0.6rem] font-semibold tracking-[0.05em] sm:text-xs">{item.number}</span>
@@ -39,7 +39,26 @@ import { navigationItems, siteConfig } from '../../data/navigation';
   </div>
 </header>
 
+<!-- Mobile bottom navigation (visible only below 480px) -->
+<nav class="mobile-nav hidden max-[480px]:flex fixed bottom-0 left-0 right-0 z-[1000]">
+  <div class="mobile-nav-bg-light absolute inset-0 bg-white border-t border-gray-100"></div>
+  <div class="mobile-nav-bg-dark absolute inset-0 bg-[#0a0a0a] border-t border-[#1a1a1a] opacity-0"></div>
+  <div class="relative flex justify-around items-center w-full py-2 px-2">
+    {navigationItems.map((item, index) => (
+      <a
+        href={item.href}
+        class={`mobile-nav-link flex flex-col items-center gap-1 px-3 py-1 ${index === 0 ? 'active' : ''}`}
+        data-nav-id={item.id}
+      >
+        <span class="text-[0.55rem] font-semibold tracking-wider">{item.number}</span>
+        <span class="mobile-nav-dot w-1 h-1 rounded-full transition-colors duration-300"></span>
+      </a>
+    ))}
+  </div>
+</nav>
+
 <style>
+  /* Desktop sidebar */
   .nav-link {
     color: #9ca3af;
   }
@@ -52,7 +71,7 @@ import { navigationItems, siteConfig } from '../../data/navigation';
   .nav-link:hover .nav-bar {
     background-color: #e63946;
   }
-  
+
   .nav-item.active .nav-link {
     color: #e63946;
   }
@@ -65,7 +84,7 @@ import { navigationItems, siteConfig } from '../../data/navigation';
       height: 30px;
     }
   }
-  
+
   .header-wrapper.dark .nav-link {
     color: #6b7280;
   }
@@ -84,12 +103,58 @@ import { navigationItems, siteConfig } from '../../data/navigation';
   .header-wrapper.dark .nav-item.active .nav-bar {
     background-color: #e63946;
   }
+
+  /* Mobile bottom nav */
+  .mobile-nav-bg-light,
+  .mobile-nav-bg-dark {
+    transition: opacity 500ms ease-out;
+  }
+  .mobile-nav.dark .mobile-nav-bg-light {
+    opacity: 0;
+  }
+  .mobile-nav.dark .mobile-nav-bg-dark {
+    opacity: 1;
+  }
+
+  .mobile-nav-link {
+    color: #9ca3af;
+    transition: color 300ms ease-out;
+  }
+  .mobile-nav-link:hover {
+    color: #e63946;
+  }
+  .mobile-nav-dot {
+    background-color: #e5e7eb;
+  }
+  .mobile-nav-link.active {
+    color: #e63946;
+  }
+  .mobile-nav-link.active .mobile-nav-dot {
+    background-color: #e63946;
+  }
+  .mobile-nav.dark .mobile-nav-link {
+    color: #6b7280;
+  }
+  .mobile-nav.dark .mobile-nav-link:hover {
+    color: #e63946;
+  }
+  .mobile-nav.dark .mobile-nav-dot {
+    background-color: #374151;
+  }
+  .mobile-nav.dark .mobile-nav-link.active {
+    color: #e63946;
+  }
+  .mobile-nav.dark .mobile-nav-link.active .mobile-nav-dot {
+    background-color: #e63946;
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header-wrapper');
+    const mobileNav = document.querySelector('.mobile-nav');
     const navItems = document.querySelectorAll('.nav-item');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const sections = document.querySelectorAll('section[id]');
 
     const darkSections = ['about', 'personal', 'contact'];
@@ -106,24 +171,26 @@ import { navigationItems, siteConfig } from '../../data/navigation';
           const section = entry.target as HTMLElement;
           const id = section.getAttribute('id');
 
-          const isDarkSection = (id && darkSections.includes(id)) || 
+          const isDarkSection = (id && darkSections.includes(id)) ||
             section.classList.contains('bg-[#0a0a0a]');
-          
+
           if (isDarkSection) {
             header?.classList.add('dark');
+            mobileNav?.classList.add('dark');
           } else {
             header?.classList.remove('dark');
+            mobileNav?.classList.remove('dark');
           }
 
           if (id) {
-            navItems.forEach((item) => {
-              item.classList.remove('active');
-            });
-            
+            navItems.forEach((item) => item.classList.remove('active'));
+            mobileNavLinks.forEach((link) => link.classList.remove('active'));
+
             const activeNavItem = document.querySelector(`.nav-item[data-nav-id="nav-${id}"]`);
-            if (activeNavItem) {
-              activeNavItem.classList.add('active');
-            }
+            if (activeNavItem) activeNavItem.classList.add('active');
+
+            const activeMobileLink = document.querySelector(`.mobile-nav-link[data-nav-id="nav-${id}"]`);
+            if (activeMobileLink) activeMobileLink.classList.add('active');
           }
         }
       });
@@ -131,19 +198,25 @@ import { navigationItems, siteConfig } from '../../data/navigation';
 
     sections.forEach(section => observer.observe(section));
 
-    // Smooth scroll ao clicar nos links
+    // Smooth scroll — desktop nav items (li > a)
     navItems.forEach(item => {
       const link = item.querySelector('a');
       link?.addEventListener('click', (e) => {
         e.preventDefault();
         const href = link.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          const targetId = href.substring(1);
-          const targetSection = document.getElementById(targetId);
-          
-          if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+        if (href?.startsWith('#')) {
+          document.getElementById(href.substring(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Smooth scroll — mobile nav links (a directly)
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = (link as HTMLAnchorElement).getAttribute('href');
+        if (href?.startsWith('#')) {
+          document.getElementById(href.substring(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
