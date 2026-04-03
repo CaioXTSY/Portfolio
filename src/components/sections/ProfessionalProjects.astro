@@ -18,7 +18,7 @@ import { professionalProjects } from '../../data/projects';
     <div class="mb-12 flex flex-col items-start md:items-start">
       <div class="flex items-center gap-4 mb-4">
         <span class="w-10 h-[2px] bg-[#e63946]"></span>
-        <span class="text-xs font-semibold tracking-[0.3em] text-[#e63946]">EXPERIENCE</span>
+        <span class="text-xs font-semibold tracking-[0.3em] text-[#e63946]">PROJECTS</span>
       </div>
       <h2 class="text-4xl md:text-6xl font-light text-[#1a1a1a] leading-[1.1] mb-4">
         <span class="lang-text" data-key="projects.professional">Professional</span><br/>
@@ -29,9 +29,9 @@ import { professionalProjects } from '../../data/projects';
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
       {professionalProjects.map((project) => (
-        <ProjectCard 
-          project={project} 
-          featured={false}
+        <ProjectCard
+          project={project}
+          featured={project.featured}
         />
       ))}
     </div>
