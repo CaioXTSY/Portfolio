@@ -11,6 +11,7 @@ interface Props {
   variant?: 'dark' | 'light' | 'hero';
   centered?: boolean;
   titleBreak?: boolean;
+  highlightFirst?: boolean;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   variant = 'dark',
   centered = true,
   titleBreak = false,
+  highlightFirst = false,
 } = Astro.props;
 
 const isDark = variant === 'dark';
@@ -51,16 +53,34 @@ const highlightColor = 'text-[#e63946]';
   )}
 
   <h2 class={`text-4xl md:text-6xl font-black ${titleColor} tracking-wider leading-none mb-4`}>
-    {title && (
-      titleKey
-        ? <span class="lang-text" data-key={titleKey}>{title}</span>
-        : title
-    )}
-    {titleBreak && title && highlight && <br/>}
-    {highlight && (
-      highlightKey
-        ? <span class={`${highlightColor} lang-text`} data-key={highlightKey}>{highlight}</span>
-        : <span class={highlightColor}>{highlight}</span>
+    {highlightFirst ? (
+      <>
+        {highlight && (
+          highlightKey
+            ? <span class={`${highlightColor} lang-text`} data-key={highlightKey}>{highlight}</span>
+            : <span class={highlightColor}>{highlight}</span>
+        )}
+        {titleBreak && title && highlight && <br/>}
+        {title && (
+          titleKey
+            ? <span class="lang-text" data-key={titleKey}>{title}</span>
+            : title
+        )}
+      </>
+    ) : (
+      <>
+        {title && (
+          titleKey
+            ? <span class="lang-text" data-key={titleKey}>{title}</span>
+            : title
+        )}
+        {titleBreak && title && highlight && <br/>}
+        {highlight && (
+          highlightKey
+            ? <span class={`${highlightColor} lang-text`} data-key={highlightKey}>{highlight}</span>
+            : <span class={highlightColor}>{highlight}</span>
+        )}
+      </>
     )}
   </h2>
 
