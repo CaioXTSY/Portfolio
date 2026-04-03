@@ -11,39 +11,39 @@ interface Props {
 const { project, featured = false } = Astro.props;
 ---
 
-<article class={`group relative bg-white overflow-hidden border border-[#e5e5e5] transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-primary/20 ${featured ? 'lg:row-span-2' : ''} flex flex-col`}>
+<article class="group relative bg-white overflow-hidden border border-[#e5e5e5] transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-primary/20 flex flex-col">
   <div class="absolute top-0 left-0 h-[3px] bg-[#e63946] w-0 transition-all duration-400 ease-out group-hover:w-full z-20"></div>
   
   {project.image && (
-    <div class={`w-full ${featured ? 'h-64 sm:h-80' : 'h-48 sm:h-56'} overflow-hidden border-b border-[#eee] relative bg-gray-50`}>
+    <div class="w-full h-48 sm:h-56 overflow-hidden border-b border-[#eee] relative bg-gray-50">
       {project.mediaType === 'video' ? (
-         <video 
-          src={project.image} 
-          autoplay 
-          loop 
-          muted 
+        <video
+          src={project.image}
+          autoplay
+          loop
+          muted
           playsinline
           class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
         />
       ) : (
-        <img 
-          src={project.image} 
-          alt={project.title} 
+        <img
+          src={project.image}
+          alt={project.title}
           class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
         />
       )}
     </div>
   )}
   
-  <div class={`relative ${featured ? 'p-8 lg:p-10' : 'p-6 sm:p-8'} flex flex-col flex-grow z-10`}>
+  <div class="relative p-6 sm:p-8 flex flex-col flex-grow z-10">
     <div class="flex justify-between items-start mb-4 gap-4">
-      <h3 class={`${featured ? 'text-2xl lg:text-3xl' : 'text-xl'} font-semibold text-[#1a1a1a] transition-colors duration-300 group-hover:text-[#e63946] leading-tight`} data-key={`projects.${project.id}`}>
+      <h3 class="text-xl font-semibold text-[#1a1a1a] transition-colors duration-300 group-hover:text-[#e63946] leading-tight" data-key={`projects.${project.id}`}>
         {project.title}
       </h3>
       <span class="text-sm font-semibold text-[#999] font-inter whitespace-nowrap pt-1 bg-gray-100 px-2 py-1 rounded">{project.year}</span>
     </div>
 
-    <p class={`${featured ? 'text-base' : 'text-sm'} text-[#666] leading-relaxed mb-6 flex-grow`} data-key={`projects.${project.id}Desc`}>
+    <p class="text-sm text-[#666] leading-relaxed mb-6 flex-grow" data-key={`projects.${project.id}Desc`}>
       {project.description}
     </p>
 
