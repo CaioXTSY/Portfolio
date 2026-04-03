@@ -31,9 +31,9 @@ export const translations = {
       statusValue: 'Disponível para projetos',
       frontend: 'Frontend',
       backend: 'Backend',
-      design: '🎨 Design',
+      design: 'Design',
       designDesc: 'Prototipação e design de interfaces com Figma.',
-      devops: '🔄 DevOps',
+      devops: 'DevOps',
       devopsDesc: 'CI/CD com GitHub Actions, deploy e automação.',
     },
     projects: {
@@ -126,9 +126,9 @@ export const translations = {
       statusValue: 'Available for projects',
       frontend: 'Frontend',
       backend: 'Backend',
-      design: '🎨 Design',
+      design: 'Design',
       designDesc: 'Interface prototyping and design with Figma.',
-      devops: '🔄 DevOps',
+      devops: 'DevOps',
       devopsDesc: 'CI/CD with GitHub Actions, deployment and automation.',
     },
     projects: {

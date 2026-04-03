@@ -60,11 +60,11 @@ export const aboutData: AboutData = {
   
   archives: [
     {
-      title: '🎨 Design',
+      title: 'Design',
       content: 'Figma for prototyping and interface design.',
     },
     {
-      title: '🔄 DevOps',
+      title: 'DevOps',
       content: 'GitHub Actions, CI/CD. Knowledge of deploy and process automation.',
     },
   ],
