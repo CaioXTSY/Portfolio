@@ -9,7 +9,7 @@ export const professionalProjects: Project[] = [
     role: 'Fullstack Developer',
     techStack: ['Next.js', 'Nest.js', 'Prisma ORM'],
     featured: true,
-    image: '/rapido_infoshop.gif',
+    image: '/rapido_infoshop.webp',
     mediaType: 'image',
   },
   {
@@ -39,7 +39,7 @@ export const professionalProjects: Project[] = [
     year: '2025',
     role: 'Backend Developer',
     techStack: ['Flask', 'OpenAI API', 'Python'],
-    image: '/finasa.png',
+    image: '/finasa.webp',
     mediaType: 'image',
   },
   {

@@ -24,6 +24,6 @@ export const experiences: Experience[] = [
       'Integration of payment systems and external services, optimizing business processes',
     ],
     technologies: ['Next.js', 'Nest.js', 'TypeScript', 'Prisma ORM', 'MySQL', 'React'],
-    logo: '/rapido_logo.png',
+    logo: '/rapido_logo.webp',
   },
 ];
