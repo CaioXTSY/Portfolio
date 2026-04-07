@@ -21,14 +21,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="canonical" href={canonicalURL} />
 		
-		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={new URL(image, Astro.url)} />
 
-		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={Astro.url} />
 		<meta property="twitter:title" content={title} />
@@ -77,23 +75,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }
   
   function initializeTranslations() {
-    // Executar tradução inicial
     updateAllTranslations();
-    
-    // Escutar mudanças de idioma
     window.addEventListener('languageChange', () => {
       updateAllTranslations();
     });
   }
-  
-  // Garantir que o DOM está pronto
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeTranslations);
   } else {
     initializeTranslations();
   }
-  
-  // Também executar após um pequeno delay para garantir que todos os elementos foram renderizados
+
   setTimeout(updateAllTranslations, 100);
 </script>
 
@@ -125,13 +118,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		min-height: 100vh;
 	}
 
-	/* Selection styles */
 	::selection {
 		background-color: rgba(230, 57, 70, 0.2);
 		color: #1a1a1a;
 	}
 
-	/* Scrollbar styles */
 	::-webkit-scrollbar {
 		width: 8px;
 	}

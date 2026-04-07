@@ -10,12 +10,9 @@ export const translations = {
     },
     hero: {
       title: 'Desenvolvedor Fullstack',
-      subtitle: '',
-      cta: '',
     },
     about: {
       title: 'Sobre',
-      subtitle: '',
       technologies: 'Tecnologias',
       downloadResume: 'Currículo',
       name: 'Caio Teixeira',
@@ -66,7 +63,6 @@ export const translations = {
     },
     experience: {
       title: 'Experiência',
-      work: '',
       achievements: 'Principais Entregas',
       internship: 'Desenvolvedor Fullstack',
       company: 'Rápido Infoshop',
@@ -74,7 +70,6 @@ export const translations = {
       achievement2: 'Desenvolvimento de arquiteturas escaláveis e APIs RESTful de alta performance com Nest.js e FastAPI',
       achievement3: 'Integração de sistemas de pagamento e serviços externos, otimizando processos de negócio',
       description: 'Atuação no desenvolvimento fullstack de soluções internas para otimização de processos e projetos externos para clientes de diversos segmentos. Responsável pelo ciclo completo de desenvolvimento, desde a concepção até o deploy e manutenção.',
-      descriptionText: '',
       location: 'Brasil',
       period: '2024 - Presente',
     },
@@ -83,15 +78,11 @@ export const translations = {
       'subtitle-part1': 'Vamos',
       'subtitle-part2': 'Conversar.',
       description: 'Disponível para novos projetos e oportunidades.',
-      subtitle: 'Disponível para novos projetos e oportunidades.',
       sayHello: 'Enviar Mensagem',
       orEmail: 'ou pelo email',
       backToTop: 'Voltar ao topo',
       allRightsReserved: 'Todos os direitos reservados.',
       builtWith: 'Built With',
-    },
-    footer: {
-      copyright: '© 2025 Caio Teixeira. ',
     },
   },
   en: {
@@ -105,12 +96,9 @@ export const translations = {
     },
     hero: {
       title: 'Fullstack Developer',
-      subtitle: '',
-      cta: '',
     },
     about: {
       title: 'About',
-      subtitle: '',
       technologies: 'Technologies',
       downloadResume: 'Resume',
       name: 'Caio Teixeira',
@@ -161,7 +149,6 @@ export const translations = {
     },
     experience: {
       title: 'Experience',
-      work: '',
       achievements: 'Key Deliverables',
       internship: 'Fullstack Developer',
       company: 'Rápido Infoshop',
@@ -170,7 +157,6 @@ export const translations = {
       achievement3: 'Database modeling and integration with Prisma ORM and MySQL',
       achievement4: 'Active participation in production environment projects',
       description: 'Development and maintenance of institutional platform and internal web applications. Responsible for frontend and backend implementations, bug fixes and performance optimizations.',
-      descriptionText: '',
       location: 'Brazil',
       period: '2024 - Present',
     },
@@ -179,15 +165,11 @@ export const translations = {
       'subtitle-part1': 'Let\'s',
       'subtitle-part2': 'Talk.',
       description: 'Available for new projects and opportunities.',
-      subtitle: 'Available for new projects and opportunities.',
       sayHello: 'Send Message',
       orEmail: 'or via email',
       backToTop: 'Back to top',
       allRightsReserved: 'All rights reserved.',
       builtWith: 'Built with',
-    },
-    footer: {
-      copyright: '© 2025 Caio Teixeira. ',
     },
   },
 };

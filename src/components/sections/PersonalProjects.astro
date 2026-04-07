@@ -4,7 +4,7 @@ import CarouselButton from '../ui/CarouselButton.astro';
 import CornerDecorations from '../ui/CornerDecorations.astro';
 import { personalProjects } from '../../data/projects';
 
-const totalIndicators = Math.ceil(personalProjects.length / 1) || 2;
+const totalIndicators = personalProjects.length || 2;
 ---
 
 <section id="personal" class="relative w-full min-h-screen py-24 px-4 md:px-16 bg-[#0a0a0a] flex flex-col items-center justify-center overflow-hidden snap-start projects-section">
@@ -223,7 +223,6 @@ const totalIndicators = Math.ceil(personalProjects.length / 1) || 2;
     });
   }
 
-  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
     if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
