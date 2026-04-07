@@ -1,39 +1,41 @@
-# Astro Starter Kit
+# Portfolio — caiots.dev
+
+Personal portfolio website built with Astro, TypeScript, and Tailwind CSS. Bilingual (PT/EN), showcasing professional experience, projects, and tech stack.
+
+## Tech Stack
+
+- [Astro](https://astro.build) — static site generator
+- TypeScript
+- Tailwind CSS
+
+## Getting Started
 
 ```sh
 npm install
 npm run dev
 ```
 
-## Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   ├── pages/
-│   └── styles/
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
-
 ## Commands
-
-All commands are run from the root of the project, from a terminal:
 
 | Command | Action |
 | :-- | :-- |
-| `npm install` | Installs dependencies |
-| `npm run dev` | Starts local dev server at `localhost:4321` |
-| `npm run build` | Build your production site to `./dist/` |
-| `npm run preview` | Preview your build locally, before deploying |
-| `npm run astro` | Run CLI commands like `astro add`, `astro check` |
+| `npm run dev` | Start dev server at `localhost:4321` |
+| `npm run build` | Build production site to `./dist/` |
+| `npm run preview` | Preview production build locally |
 
-## Want to learn more?
+## Structure
 
-Check out [Astro documentation](https://docs.astro.build).
+```
+src/
+├── components/       # UI components and page sections
+├── data/             # Projects, stack, and experience data
+├── i18n/             # PT/EN translations
+├── layouts/          # Page layout wrapper
+├── pages/            # Astro pages (single-page)
+├── types/            # TypeScript definitions
+└── utils/            # Helper utilities
+```
+
+## Live
+
+[caiots.dev](https://caiots.dev)
