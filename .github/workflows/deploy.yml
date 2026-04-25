@@ -1,0 +1,41 @@
+name: Deploy Prod
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  executar-ssh:
+    name: Deploy SSH
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extrair configurações
+        run: |
+          echo "REPO_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
+          echo "SSH_HOST=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.host')" >> $GITHUB_ENV
+          echo "SSH_USER=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.username')" >> $GITHUB_ENV
+          echo "SSH_PASS=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.password')" >> $GITHUB_ENV
+          echo "SSH_PORT=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.port')" >> $GITHUB_ENV
+          echo "SSH_PATH=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.path')" >> $GITHUB_ENV
+          echo "TOKEN_GITHUB=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.tokengithub')" >> $GITHUB_ENV
+      
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          TOKEN_GITHUB: ${{ env.TOKEN_GITHUB }}
+          COMMIT_HASH: ${{ github.sha }}
+          REPO_NAME: ${{ env.REPO_NAME }}
+          SSH_PATH: ${{ env.SSH_PATH }}
+          GITHUB_REF: ${{ github.ref }}
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USER }}
+          password: ${{ env.SSH_PASS }}
+          port: ${{ env.SSH_PORT }}
+          envs: TOKEN_GITHUB,COMMIT_HASH,REPO_NAME,SSH_PATH,GITHUB_REF
+          script: |
+            # Forçamos o ambiente para 'prod'
+            AMBIENTE="prod"
+            cd ${SSH_PATH}${AMBIENTE}
+            ./${REPO_NAME}.sh "$COMMIT_HASH" "$REPO_NAME" "main" "$AMBIENTE" "$TOKEN_GITHUB"
