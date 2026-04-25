@@ -3,7 +3,7 @@ name: Deploy Prod
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   executar-ssh:
@@ -27,15 +27,14 @@ jobs:
           COMMIT_HASH: ${{ github.sha }}
           REPO_NAME: ${{ env.REPO_NAME }}
           SSH_PATH: ${{ env.SSH_PATH }}
-          GITHUB_REF: ${{ github.ref }}
         with:
           host: ${{ env.SSH_HOST }}
           username: ${{ env.SSH_USER }}
           password: ${{ env.SSH_PASS }}
           port: ${{ env.SSH_PORT }}
-          envs: TOKEN_GITHUB,COMMIT_HASH,REPO_NAME,SSH_PATH,GITHUB_REF
+          envs: TOKEN_GITHUB,COMMIT_HASH,REPO_NAME,SSH_PATH
           script: |
-            # Forçamos o ambiente para 'prod'
             AMBIENTE="prod"
             cd ${SSH_PATH}${AMBIENTE}
-            ./${REPO_NAME}.sh "$COMMIT_HASH" "$REPO_NAME" "main" "$AMBIENTE" "$TOKEN_GITHUB"
+            # Executa usando 'bash' para ignorar problemas de permissão
+            bash ${REPO_NAME}.sh "$COMMIT_HASH" "$REPO_NAME" "main" "$AMBIENTE" "$TOKEN_GITHUB"
