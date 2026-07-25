@@ -19,6 +19,11 @@ export function updateAllTranslations(lang: Language) {
   
   document.documentElement.lang = lang;
   document.documentElement.setAttribute('data-lang', lang);
+
+  const resumeLink = document.getElementById('resume-link');
+  if (resumeLink) {
+    resumeLink.setAttribute('href', lang === 'pt' ? '/cv_pt.pdf' : '/cv_en.pdf');
+  }
 }
 
 export function getNestedValue(obj: any, path: string): any {
@@ -36,6 +41,6 @@ export function setupLanguageListener() {
     updateAllTranslations(event.detail);
   });
   
-  const lang = (localStorage.getItem('language') || 'en') as Language;
+  const lang = (localStorage.getItem('language') || 'pt') as Language;
   updateAllTranslations(lang);
 }

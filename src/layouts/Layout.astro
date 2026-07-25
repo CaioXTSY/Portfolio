@@ -48,46 +48,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 </html>
 
 <script>
-  import { translations } from '../i18n/translations';
-  
-  function updateAllTranslations() {
-    const lang = (localStorage.getItem('language') || 'pt') as 'en' | 'pt';
-    const t = translations[lang];
-    
-    document.querySelectorAll('[data-key]').forEach(el => {
-      const key = el.getAttribute('data-key');
-      if (key) {
-        const keys = key.split('.');
-        let value: any = t;
-        for (const k of keys) {
-          value = value?.[k];
-        }
-        if (value && typeof value === 'string') {
-          el.textContent = value;
-        }
-      }
-    });
+  import { setupLanguageListener } from '../i18n/client';
 
-    const resumeLink = document.getElementById('resume-link');
-    if (resumeLink) {
-      resumeLink.setAttribute('href', lang === 'pt' ? '/cv_pt.pdf' : '/cv_en.pdf');
-    }
-  }
-  
-  function initializeTranslations() {
-    updateAllTranslations();
-    window.addEventListener('languageChange', () => {
-      updateAllTranslations();
-    });
-  }
+  const initializeTranslations = () => {
+    setupLanguageListener();
+  };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeTranslations);
+    document.addEventListener('DOMContentLoaded', initializeTranslations, { once: true });
   } else {
     initializeTranslations();
   }
-
-  setTimeout(updateAllTranslations, 100);
 </script>
 
 <style is:global>
