@@ -10,10 +10,10 @@ export const navigationItems: NavItem[] = [
 ];
 
 export const siteConfig = {
-  name: 'Caio Silva',
+  name: 'Caio Teixeira',
   firstName: 'CAIO',
-  lastName: 'SILVA',
+  lastName: 'TEIXEIRA',
   role: 'FULLSTACK DEVELOPER',
-  description: 'Caio Silva Portfolio - Developer',
+  description: 'Caio Teixeira Portfolio - Fullstack Developer',
   availableForWork: true,
 };

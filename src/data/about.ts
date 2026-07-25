@@ -70,5 +70,5 @@ export const aboutData: AboutData = {
   ],
   
   image: '/images/profile.jpg',
-  resumeUrl: '/cv.pdf',
+  resumeUrl: '/cv_pt.pdf',
 };
