@@ -1,13 +1,18 @@
 ---
 interface Props {
   variant?: 'dark' | 'light';
+  tone?: 'neutral' | 'primary';
   size?: number;
 }
 
-const { variant = 'dark', size = 80 } = Astro.props;
+const { variant = 'dark', tone = 'neutral', size = 80 } = Astro.props;
 
 const isDark = variant === 'dark';
-const lineColor = isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)';
+const lineColor = tone === 'primary'
+  ? 'rgba(230,57,70,0.03)'
+  : isDark
+    ? 'rgba(255,255,255,0.03)'
+    : 'rgba(0,0,0,0.03)';
 ---
 
 <div 

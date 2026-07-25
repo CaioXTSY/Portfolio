@@ -1,9 +1,10 @@
 ---
 import { contactData } from '../../data/contact';
+import BackgroundGrid from '../ui/BackgroundGrid.astro';
 ---
 
 <section id="contact" class="w-full min-h-screen relative bg-[#0a0a0a] snap-start overflow-hidden flex flex-col" data-section="contact">
-  <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(230,57,70,0.03)_1px,transparent_1px),linear-gradient(0deg,rgba(230,57,70,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none z-0"></div>
+  <BackgroundGrid variant="dark" tone="primary" size={60} />
 
   <div class="flex-1 flex items-center justify-center py-20 px-4 md:px-8">
     <div class="relative z-10 w-full max-w-3xl mx-auto text-center">

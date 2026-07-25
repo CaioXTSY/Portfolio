@@ -1,0 +1,14 @@
+---
+interface Props {
+  color?: 'primary' | 'white';
+}
+
+const { color = 'primary' } = Astro.props;
+const guideColor = color === 'primary' ? 'via-[#e6394612]' : 'via-white/10';
+---
+
+<div class="absolute inset-0 flex justify-between px-[10%] pointer-events-none z-0" aria-hidden="true">
+  {[50, 80, 100, 80, 50].map((opacity) => (
+    <div class={`w-px h-full bg-gradient-to-b from-transparent ${guideColor} to-transparent`} style={`opacity: ${opacity / 100}`}></div>
+  ))}
+</div>
