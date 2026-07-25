@@ -18,7 +18,6 @@ export interface AboutData {
     title: string;
     content: string;
   }>;
-  image?: string;
   resumeUrl?: string;
 }
 
@@ -69,6 +68,5 @@ export const aboutData: AboutData = {
     },
   ],
   
-  image: '/images/profile.jpg',
   resumeUrl: '/cv_pt.pdf',
 };
