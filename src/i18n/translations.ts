@@ -8,6 +8,9 @@ export const translations = {
       experience: 'Experiência',
       contact: 'Contato',
     },
+    header: {
+      available: 'DISPONÍVEL',
+    },
     hero: {
       title: 'Desenvolvedor Fullstack',
     },
@@ -93,6 +96,9 @@ export const translations = {
       personal: 'Personal',
       experience: 'Experience',
       contact: 'Contact',
+    },
+    header: {
+      available: 'AVAILABLE',
     },
     hero: {
       title: 'Fullstack Developer',
