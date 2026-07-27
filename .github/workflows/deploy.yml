@@ -5,36 +5,62 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
-  executar-ssh:
-    name: Deploy SSH
+  deploy:
+    name: Build e deploy do Portfolio
     runs-on: ubuntu-latest
+
     steps:
-      - name: Extrair configurações
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Gerar site estático
+        run: npm run build
+
+      - name: Extrair configurações do VPS
+        env:
+          SSH_CONFIG: ${{ secrets.SSH_CONFIG }}
         run: |
-          echo "REPO_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
-          echo "SSH_HOST=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.host')" >> $GITHUB_ENV
-          echo "SSH_USER=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.username')" >> $GITHUB_ENV
-          echo "SSH_PASS=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.password')" >> $GITHUB_ENV
-          echo "SSH_PORT=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.port')" >> $GITHUB_ENV
-          echo "SSH_PATH=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.path')" >> $GITHUB_ENV
-          echo "TOKEN_GITHUB=$(echo '${{ secrets.SSH_CONFIG }}' | jq -r '.tokengithub')" >> $GITHUB_ENV
-      
-      - name: Deploy via SSH
+          echo "SSH_HOST=$(echo "$SSH_CONFIG" | jq -r '.host')" >> "$GITHUB_ENV"
+          echo "SSH_USER=$(echo "$SSH_CONFIG" | jq -r '.username')" >> "$GITHUB_ENV"
+          echo "SSH_PASS=$(echo "$SSH_CONFIG" | jq -r '.password')" >> "$GITHUB_ENV"
+          echo "SSH_PORT=$(echo "$SSH_CONFIG" | jq -r '.port')" >> "$GITHUB_ENV"
+          echo "DEPLOY_DIR=/www/wwwroot/${GITHUB_REPOSITORY#*/}/dist" >> "$GITHUB_ENV"
+
+      - name: Limpar versão anterior, preservando configuração do aaPanel
         uses: appleboy/ssh-action@v1.2.0
         env:
-          TOKEN_GITHUB: ${{ env.TOKEN_GITHUB }}
-          COMMIT_HASH: ${{ github.sha }}
-          REPO_NAME: ${{ env.REPO_NAME }}
-          SSH_PATH: ${{ env.SSH_PATH }}
+          DEPLOY_DIR: ${{ env.DEPLOY_DIR }}
         with:
           host: ${{ env.SSH_HOST }}
           username: ${{ env.SSH_USER }}
           password: ${{ env.SSH_PASS }}
           port: ${{ env.SSH_PORT }}
-          envs: TOKEN_GITHUB,COMMIT_HASH,REPO_NAME,SSH_PATH
+          envs: DEPLOY_DIR
           script: |
-            AMBIENTE="prod"
-            cd ${SSH_PATH}${AMBIENTE}
-            # Executa usando 'bash' para ignorar problemas de permissão
-            bash ${REPO_NAME}.sh "$COMMIT_HASH" "$REPO_NAME" "main" "$AMBIENTE" "$TOKEN_GITHUB"
+            set -eu
+            test -d "$DEPLOY_DIR"
+            find "$DEPLOY_DIR" -mindepth 1 -maxdepth 1 ! -name '.user.ini' -exec rm -rf -- {} +
+
+      - name: Enviar arquivos estáticos
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USER }}
+          password: ${{ env.SSH_PASS }}
+          port: ${{ env.SSH_PORT }}
+          source: dist/
+          target: ${{ env.DEPLOY_DIR }}
+          strip_components: 1
