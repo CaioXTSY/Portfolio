@@ -1,4 +1,4 @@
-name: Deploy Prod
+name: Deploy
 
 on:
   push:
@@ -10,14 +10,13 @@ permissions:
 
 jobs:
   deploy:
-    name: Build e deploy do Portfolio
     runs-on: ubuntu-latest
 
     steps:
       - name: Baixar código
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Configurar Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -26,41 +25,16 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
-      - name: Gerar site estático
+      - name: Gerar build
         run: npm run build
 
-      - name: Extrair configurações do VPS
-        env:
-          SSH_CONFIG: ${{ secrets.SSH_CONFIG }}
-        run: |
-          echo "SSH_HOST=$(echo "$SSH_CONFIG" | jq -r '.host')" >> "$GITHUB_ENV"
-          echo "SSH_USER=$(echo "$SSH_CONFIG" | jq -r '.username')" >> "$GITHUB_ENV"
-          echo "SSH_PASS=$(echo "$SSH_CONFIG" | jq -r '.password')" >> "$GITHUB_ENV"
-          echo "SSH_PORT=$(echo "$SSH_CONFIG" | jq -r '.port')" >> "$GITHUB_ENV"
-          echo "DEPLOY_DIR=/www/wwwroot/${GITHUB_REPOSITORY#*/}/dist" >> "$GITHUB_ENV"
-
-      - name: Limpar versão anterior, preservando configuração do aaPanel
-        uses: appleboy/ssh-action@v1.2.0
-        env:
-          DEPLOY_DIR: ${{ env.DEPLOY_DIR }}
-        with:
-          host: ${{ env.SSH_HOST }}
-          username: ${{ env.SSH_USER }}
-          password: ${{ env.SSH_PASS }}
-          port: ${{ env.SSH_PORT }}
-          envs: DEPLOY_DIR
-          script: |
-            set -eu
-            test -d "$DEPLOY_DIR"
-            find "$DEPLOY_DIR" -mindepth 1 -maxdepth 1 ! -name '.user.ini' -exec rm -rf -- {} +
-
-      - name: Enviar arquivos estáticos
+      - name: Publicar site
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ env.SSH_HOST }}
-          username: ${{ env.SSH_USER }}
-          password: ${{ env.SSH_PASS }}
-          port: ${{ env.SSH_PORT }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
           source: dist/
-          target: ${{ env.DEPLOY_DIR }}
+          target: /www/wwwroot/Portfolio/dist
           strip_components: 1
