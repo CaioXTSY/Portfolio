@@ -5,11 +5,12 @@
 @layer base {
 	html {
 		@apply text-dark bg-white;
+		font-family: 'Archivo', system-ui, sans-serif;
 	}
 
 	body {
-		@apply font-inter;
-		line-height: 1.6;
+		font-family: 'Archivo', system-ui, sans-serif;
+		line-height: 1.65;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -43,5 +44,14 @@
 @layer utilities {
 	.text-balance {
 		text-wrap: balance;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
 	}
 }

@@ -17,7 +17,8 @@ export default {
 				light: '#fafafa',
 			},
 			fontFamily: {
-				inter: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+				inter: ['Archivo', 'system-ui', '-apple-system', 'sans-serif'],
+				display: ['Space Grotesk', 'Archivo', 'system-ui', 'sans-serif'],
 			},
 			transitionDuration: {
 				400: '400ms',
