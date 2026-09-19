@@ -13,7 +13,7 @@ export const siteConfig = {
   name: 'Caio Teixeira',
   firstName: 'CAIO',
   lastName: 'TEIXEIRA',
-  role: 'FULLSTACK DEVELOPER',
-  description: 'Caio Teixeira Portfolio - Fullstack Developer',
+  role: 'DESENVOLVEDOR FULLSTACK',
+  description: 'Portfólio de Caio Teixeira, desenvolvedor fullstack.',
   availableForWork: true,
 };

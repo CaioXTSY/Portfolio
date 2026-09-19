@@ -1,5 +1,9 @@
 export const translations = {
   pt: {
+    meta: {
+      title: 'Caio Teixeira | Desenvolvedor Fullstack',
+      description: 'Portfólio de Caio Teixeira, desenvolvedor fullstack especializado em aplicações web.',
+    },
     nav: {
       home: 'Início',
       about: 'Sobre',
@@ -13,6 +17,10 @@ export const translations = {
     },
     hero: {
       title: 'Desenvolvedor Fullstack',
+      eyebrow: 'Desenvolvedor · Brasil',
+      viewWork: 'Ver projetos selecionados',
+      workTogether: 'Vamos trabalhar juntos',
+      scroll: 'ROLE',
     },
     about: {
       title: 'Sobre',
@@ -37,6 +45,7 @@ export const translations = {
       devopsDesc: 'CI/CD com GitHub Actions, deploy e automação.',
     },
     projects: {
+      label: 'PROJETOS',
       professional: 'Profissionais',
       'professional-highlight': 'Projetos',
       'professional-description': 'Soluções desenvolvidas para clientes',
@@ -85,10 +94,14 @@ export const translations = {
       orEmail: 'ou pelo email',
       backToTop: 'Voltar ao topo',
       allRightsReserved: 'Todos os direitos reservados.',
-      builtWith: 'Built With',
+      builtWith: 'Feito com',
     },
   },
   en: {
+    meta: {
+      title: 'Caio Teixeira | Fullstack Developer',
+      description: 'Caio Teixeira’s portfolio, a fullstack developer specializing in web applications.',
+    },
     nav: {
       home: 'Home',
       about: 'About',
@@ -102,6 +115,10 @@ export const translations = {
     },
     hero: {
       title: 'Fullstack Developer',
+      eyebrow: 'Developer · Brazil',
+      viewWork: 'View selected work',
+      workTogether: "Let's work together",
+      scroll: 'SCROLL',
     },
     about: {
       title: 'About',
@@ -126,6 +143,7 @@ export const translations = {
       devopsDesc: 'CI/CD with GitHub Actions, deployment and automation.',
     },
     projects: {
+      label: 'PROJECTS',
       professional: 'Professional',
       'professional-highlight': 'Projects',
       'professional-description': 'Solutions developed for clients',
@@ -154,6 +172,7 @@ export const translations = {
       'personal-4Desc': 'API for document processing and analysis with artificial intelligence.',
     },
     experience: {
+      label: 'CAREER',
       title: 'Experience',
       achievements: 'Key Achievements',
       internship: 'Fullstack Developer Intern',

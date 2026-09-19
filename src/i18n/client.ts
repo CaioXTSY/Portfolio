@@ -20,6 +20,11 @@ export function updateAllTranslations(lang: Language) {
   document.documentElement.lang = lang;
   document.documentElement.setAttribute('data-lang', lang);
 
+  document.title = t.meta.title;
+  document.querySelectorAll<HTMLMetaElement>('[data-meta-description]').forEach((meta) => {
+    meta.content = t.meta.description;
+  });
+
   const resumeLink = document.getElementById('resume-link');
   if (resumeLink) {
     resumeLink.setAttribute('href', lang === 'pt' ? '/cv_pt.pdf' : '/cv_en.pdf');

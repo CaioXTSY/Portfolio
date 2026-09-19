@@ -24,14 +24,14 @@ export interface AboutData {
 export const aboutData: AboutData = {
   name: 'Caio Teixeira',
   initials: 'CT',
-  class: 'Fullstack Developer',
-  bio: 'Fullstack developer with 2 years of experience in web projects. I work mainly with React, Next.js on the frontend and Nest.js, FastAPI on the backend. I like solving problems with clean and well-organized code.',
+  class: 'Desenvolvedor Fullstack',
+  bio: 'Desenvolvedor fullstack com dois anos de experiência em projetos web. Trabalho principalmente com React e Next.js no frontend, Nest.js e FastAPI no backend. Gosto de resolver problemas com código limpo e bem organizado.',
   
   basicInfo: [
-    { label: 'Location', value: 'Brazil' },
-    { label: 'Experience', value: '2 years' },
-    { label: 'Focus', value: 'Web Development' },
-    { label: 'Status', value: 'Open to Opportunities' },
+    { label: 'Location', value: 'Brasil' },
+    { label: 'Experience', value: '2 anos' },
+    { label: 'Focus', value: 'Desenvolvimento Web' },
+    { label: 'Status', value: 'Disponível para projetos' },
   ],
   
   skills: [
@@ -60,11 +60,11 @@ export const aboutData: AboutData = {
   archives: [
     {
       title: 'Design',
-      content: 'Figma for prototyping and interface design.',
+      content: 'Prototipação e design de interfaces com Figma.',
     },
     {
       title: 'DevOps',
-      content: 'GitHub Actions, CI/CD. Knowledge of deploy and process automation.',
+      content: 'CI/CD com GitHub Actions, deploy e automação de processos.',
     },
   ],
   
