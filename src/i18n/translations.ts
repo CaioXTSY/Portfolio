@@ -1,8 +1,8 @@
 export const translations = {
   pt: {
     meta: {
-      title: 'Caio Teixeira | Desenvolvedor Fullstack',
-      description: 'Portfólio de Caio Teixeira, desenvolvedor fullstack especializado em aplicações web.',
+      title: 'Caio Teixeira | Desenvolvedor Fullstack React e Python',
+      description: 'Portfólio de Caio Teixeira, desenvolvedor fullstack especializado em React, Next.js, NestJS, FastAPI e soluções web com inteligência artificial.',
     },
     nav: {
       home: 'Início',
@@ -99,8 +99,8 @@ export const translations = {
   },
   en: {
     meta: {
-      title: 'Caio Teixeira | Fullstack Developer',
-      description: 'Caio Teixeira’s portfolio, a fullstack developer specializing in web applications.',
+      title: 'Caio Teixeira | Fullstack React and Python Developer',
+      description: 'Caio Teixeira’s portfolio, a fullstack developer specializing in React, Next.js, NestJS, FastAPI, and AI-powered web solutions.',
     },
     nav: {
       home: 'Home',

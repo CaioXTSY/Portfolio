@@ -14,6 +14,6 @@ export const siteConfig = {
   firstName: 'CAIO',
   lastName: 'TEIXEIRA',
   role: 'DESENVOLVEDOR FULLSTACK',
-  description: 'Portfólio de Caio Teixeira, desenvolvedor fullstack.',
+  description: 'Portfólio de Caio Teixeira, desenvolvedor fullstack especializado em React, Next.js, NestJS, FastAPI e soluções web com inteligência artificial.',
   availableForWork: true,
 };

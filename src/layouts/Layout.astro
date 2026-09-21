@@ -1,5 +1,6 @@
 ---
 import Header from '../components/layout/Header.astro';
+import { contactData } from '../data/contact';
 import { siteConfig } from '../data/navigation';
 
 interface Props {
@@ -10,6 +11,15 @@ interface Props {
 
 const { title, description = siteConfig.description, image = '/portfolio.webp' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: siteConfig.name,
+  url: canonicalURL.href,
+  jobTitle: 'Desenvolvedor Fullstack',
+  sameAs: contactData.socials.map(({ url }) => url),
+  knowsAbout: ['React', 'Next.js', 'NestJS', 'FastAPI', 'Python', 'Inteligência Artificial'],
+};
 ---
 
 <!doctype html>
@@ -32,6 +42,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} data-meta-description />
 		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
