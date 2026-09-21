@@ -24,11 +24,6 @@ const totalIndicators = personalProjects.length || 2;
         after:content-[''] after:hidden md:after:block after:absolute after:-bottom-2.5 after:left-1/2 after:-translate-x-1/2 after:w-[60%] after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-[#e6394650] after:to-transparent lang-text" data-key="projects.personal-section">
       PROJETOS PESSOAIS
     </h2>
-    <div class="flex items-center gap-2">
-      <span class="w-[30px] h-[1px] bg-white/25 relative overflow-hidden after:content-[''] after:absolute after:top-0 after:-left-full after:w-full after:h-full after:bg-[#e63946] after:animate-[lineMove_2s_linear_infinite]"></span>
-      <span class="w-2 h-2 bg-[#e63946] rotate-45 shadow-[0_0_10px_rgba(230,57,70,0.5)] animate-[diamondPulse_2s_ease-in-out_infinite]"></span>
-      <span class="w-[30px] h-[1px] bg-white/25 relative overflow-hidden after:content-[''] after:absolute after:top-0 after:-left-full after:w-full after:h-full after:bg-[#e63946] after:animate-[lineMove_2s_linear_infinite]"></span>
-    </div>
   </div>
 
   <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 w-full max-w-[1400px] md:ml-[-80px] relative z-20">
@@ -58,8 +53,6 @@ const totalIndicators = personalProjects.length || 2;
 </section>
 
 <style>
-  @keyframes lineMove { 0% { left: -100%; } 100% { left: 200%; } }
-  @keyframes diamondPulse { 0%, 100% { box-shadow: 0 0 10px rgba(230, 57, 70, 0.5); } 50% { box-shadow: 0 0 20px #e63946; } }
   .indicator.active span { transform: scale(1); }
 </style>
 
