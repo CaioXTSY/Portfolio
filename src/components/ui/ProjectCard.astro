@@ -1,14 +1,12 @@
 ---
 import type { Project } from '../../types';
 import TechBadge from '../ui/TechBadge.astro';
-import ArrowIcon from '../ui/ArrowIcon.astro';
 
 interface Props {
   project: Project;
-  featured?: boolean;
 }
 
-const { project, featured = false } = Astro.props;
+const { project } = Astro.props;
 ---
 
 <article class="group relative bg-white overflow-hidden border border-[#e5e5e5] transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:border-primary/20 flex flex-col">

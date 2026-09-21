@@ -31,22 +31,6 @@
 	}
 }
 
-@layer components {
-	.section-container {
-		@apply w-full min-h-screen relative overflow-hidden snap-start;
-	}
-
-	.card-hover {
-		@apply transition-all duration-300 ease-out hover:-translate-y-1;
-	}
-}
-
-@layer utilities {
-	.text-balance {
-		text-wrap: balance;
-	}
-}
-
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after {
 		animation-duration: 0.01ms !important;

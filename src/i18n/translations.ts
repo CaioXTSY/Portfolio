@@ -199,4 +199,3 @@ export const translations = {
 };
 
 export type Language = 'pt' | 'en';
-export type TranslationKeys = typeof translations.en;

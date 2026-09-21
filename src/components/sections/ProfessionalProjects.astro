@@ -28,10 +28,7 @@ import { professionalProjects } from '../../data/projects';
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12 items-start">
       {professionalProjects.map((project) => (
-        <ProjectCard
-          project={project}
-          featured={project.featured}
-        />
+        <ProjectCard project={project} />
       ))}
     </div>
   </div>

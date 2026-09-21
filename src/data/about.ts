@@ -1,6 +1,5 @@
 export interface AboutData {
   name: string;
-  initials: string;
   class: string;
   bio: string;
   basicInfo: Array<{
@@ -11,7 +10,6 @@ export interface AboutData {
     category: string;
     technologies: Array<{
       name: string;
-      icon?: string;
     }>;
   }>;
   archives: Array<{
@@ -23,7 +21,6 @@ export interface AboutData {
 
 export const aboutData: AboutData = {
   name: 'Caio Teixeira',
-  initials: 'CT',
   class: 'Desenvolvedor Fullstack',
   bio: 'Desenvolvedor fullstack com dois anos de experiência em projetos web. Trabalho principalmente com React e Next.js no frontend, Nest.js e FastAPI no backend. Gosto de resolver problemas com código limpo e bem organizado.',
   
@@ -38,21 +35,21 @@ export const aboutData: AboutData = {
     {
       category: 'Frontend',
       technologies: [
-        { name: 'React', icon: '⚛️' },
-        { name: 'Next.js', icon: '▲' },
-        { name: 'Astro', icon: '🚀' },
-        { name: 'TypeScript', icon: '📘' },
-        { name: 'Tailwind CSS', icon: '🎨' },
+        { name: 'React' },
+        { name: 'Next.js' },
+        { name: 'Astro' },
+        { name: 'TypeScript' },
+        { name: 'Tailwind CSS' },
       ],
     },
     {
       category: 'Backend',
       technologies: [
-        { name: 'Nest.js', icon: '🐈' },
-        { name: 'FastAPI', icon: '⚡' },
-        { name: 'Flask', icon: '🔗' },
-        { name: 'Prisma ORM', icon: '🔮' },
-        { name: 'SQL', icon: '💾' },
+        { name: 'Nest.js' },
+        { name: 'FastAPI' },
+        { name: 'Flask' },
+        { name: 'Prisma ORM' },
+        { name: 'SQL' },
       ],
     },
   ],
